@@ -21,7 +21,7 @@ Google が運営するソーシャルログインやリアルタイムデータ�
 
 一定の容量・転送量までは無料で利用できます。
 様々な機能が提供されていますが、ここでは「Authentication」と「Database」のみを使用します。
-リアルタイムデータベースは、クライアント側から API へ問い合わせをしなくても、更新があるとデータベースから新しいデータを送信してくるといった機能です。
+リアルタイムデータベースは、クライアント側から API へ問い合わせをしなくても、データに更新があれば自動的に受信できる仕組みですです。
 
 ## Firebase プロジェクトのセットアップ
 
@@ -93,7 +93,25 @@ Google が運営するソーシャルログインやリアルタイムデータ�
 ## Firebase のルールの定義
 
 Firebase のデータベースのアクセスルールを定義します。
-簡単なアプリケーションなので、ルームなどは作らず `message` という階層のみを定義して、ユーザーの名前とプロフィール画像の URL もこれに含めることにします。
+
+<code-caption>キャプチャ1.7</code-caption>
+<p align="center"><img src="/images/firebase/firebase-rules01.png"></p>
+
+「ロックモード」と「テストモード」を選択できますが、ここでは「ロックモード」を選択します。
+進むと、次のような画面が表示されます。
+
+<code-caption>キャプチャ1.8</code-caption>
+<p align="center"><img src="/images/firebase/firebase-rules02.png"></p>
+
+エディタの部分にルールを追加していきます。
+次のルールは
+
+- デフォルトは誰も読み書きできない
+- ただし、`message` プロパティへの読み込みは認証しているユーザーなら OK
+- ただし、`message` プロパティへの書き込みは認証しているユーザーなら OK
+
+というルールです。
+
 
 ```json
 {
@@ -102,12 +120,20 @@ Firebase のデータベースのアクセスルールを定義します。
     ".read": false,
     ".write": false,
     "message": {
-      ".read": true,           // 読み込みは誰でも可能
+      ".read": "auth != null", // 読み込みは認証が必要
       ".write": "auth != null" // 書き込みは認証が必要
     }
   }
 }
 ```
+
+`message` プロパティの `.read` を `"auth != null"` ではなく `true` にすれば、見るだけなら認証していなくても OK というルールになります。どちらでも問題ありません。（キャプチャは読み込みを誰でも OK にしたもの）
+
+<code-caption>キャプチャ1.9</code-caption>
+<p align="center"><img src="/images/firebase/firebase-rules03.png"></p>
+
+
+簡単なアプリケーションなので、ルームなどは作らず `message` というプロパティのみを定義して、ユーザーの名前とプロフィール画像の URL もこれに含めることにしました。
 
 ## Vue.js で Firebase を利用する
 
@@ -117,7 +143,7 @@ Vue.js で Firebase を利用したアプリケーションを作成します。
 
 `firebase` モジュールをインストールして `main.js` で読み込みます。
 
-```
+```bash
 npm install firebase
 ```
 
@@ -129,13 +155,20 @@ import firebase from 'firebase'
 
 Firebase の「Authentication」ページの右上にある「ウェブ設定」をクリックすると、次のようなコードが表示されます。
 
-<code-caption>キャプチャ1.7</code-caption>
+<code-caption>キャプチャ1.10</code-caption>
 <p align="center"><img src="/images/firebase/firebase-websetting.png"></p>
 
 スクリプト部分だけを、`main.js` に貼り付けます。
 
 <code-caption>src/main.js</code-caption>
 ```js
+import firebase from 'firebase'
+import Vue from 'vue'
+import App from './App'
+
+Vue.config.productionTip = false
+
+// Initialize Firebase
 var config = {
   apiKey: "AIza....",
   authDomain: "YOUR_APP.firebaseapp.com",
@@ -145,6 +178,13 @@ var config = {
   messagingSenderId: "123456789"
 }
 firebase.initializeApp(config)
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  components: { App },
+  template: '<App/>'
+})
 ```
 
 
@@ -184,7 +224,7 @@ Firebase のログイン状態の確認方法は、その都度呼び出すの�
 // オブザーバーの登録
 firebase.auth().onAuthStateChanged(user => {
   // ログイン状態ならuserが取得できる
-  this.user = user ? user : null
+  this.user = user ? user : {}
 })
 ```
 
@@ -194,83 +234,137 @@ firebase.auth().onAuthStateChanged(user => {
 
 入力した「メッセージ」と、ユーザー情報の「名前」および「プロフィール画像」を、Firebase の `message` オブジェクトへ追加しましょう。
 
-<code-caption>src/components/chat.vue</code-caption>
-```html
-<div class="chat">
-  <h1>Chat</h1>
-  <!-- ログイン時にはフォームとログアウトボタンを表示 -->
-  <div v-if="user" key="login">
-    [{{ user.displayName }}]
-    <button type="button" @click="doLogout">ログアウト</button>
-    <form action="" @submit.prevent="doSend">
-      <input v-model="input">
-    </form>
-  </div>
-  <!-- 未ログイン時にはログインボタンを表示 -->
-  <div v-else key="logout">
-    <button type="button" @click="doLogin">ログイン</button>
-  </div>
-  <!--　Firebaseから取得したリストをトランジションでカッコよく描画　-->
-  <transition-group name="chat" tag="ul" class="chat-list">
-    <li v-for="{ key, name, image, message } in chat" :key="key">
-      <span><img :src="image" width="40" height="40"></span>
-      <span class="name">{{ name }}</span>
-      <span class="message">{{ message }}</span>
-    </li>
-  </transition-group>
-</div>
+このサンプルは、改行のみを `<br>` タグに変化してくれる [vue-nl2br](https://github.com/inouetakuya/vue-nl2br) というコンポーネントも利用しています。（おいちゃんさん作）
+
+```bash
+npm install vue-nl2br
 ```
 
-<code-caption>src/components/chat.vue</code-caption>
-```js
+<code-caption>src/App.vue</code-caption>
+```html
+<template>
+  <div id="app">
+    <header class="header">
+      <h1>Chat</h1>
+      <!-- ログイン時にはフォームとログアウトボタンを表示 -->
+      <div v-if="user.uid" key="login">
+        [{{ user.displayName }}]
+        <button type="button" @click="doLogout">ログアウト</button>
+      </div>
+      <!-- 未ログイン時にはログインボタンを表示 -->
+      <div v-else key="logout">
+        <button type="button" @click="doLogin">ログイン</button>
+      </div>
+    </header>
+
+    <!--　Firebase から取得したリストを描画（トランジション付き）　-->
+    <transition-group name="chat" tag="div" class="list content">
+      <section v-for="{ key, name, image, message } in chat" :key="key" class="item">
+        <div class="item-image"><img :src="image" width="40" height="40"></div>
+        <div class="item-detail">
+          <div class="item-name">{{ name }}</div>
+          <div class="item-message">
+            <nl2br tag="div" :text="message"/>
+          </div>
+        </div>
+      </section>
+    </transition-group>
+  
+    <!-- 入力フォーム -->
+    <form action="" @submit.prevent="doSend" class="form">
+      <textarea
+        v-model="input"
+        :disabled="!user.uid"
+        @keydown.enter.exact.prevent="doSend"></textarea>
+      <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
+    </form>
+  </div>
+</template>
+
+<script>
+// firebase モジュール
 import firebase from 'firebase'
+// 改行を <br> タグに変換するモジュール
+import Nl2br from 'vue-nl2br'
 export default {
+  components: { Nl2br },
   data() {
     return {
-      user: null, // ユーザー情報
-      chat: [],   // 取得したメッセージを入れる配列
-      input: ''   // 入力したメッセージ
+      user: {},  // ユーザー情報
+      chat: [],  // 取得したメッセージを入れる配列
+      input: ''  // 入力したメッセージ
     }
   },
   created() {
     firebase.auth().onAuthStateChanged(user => {
-      this.user = user ? user : null
+      this.user = user ? user : {}
+      const ref_message = firebase.database().ref('message')
+      if (user) {
+        this.chat = []
+        // message に変更があったときのハンドラを登録
+        ref_message.limitToLast(10).on('child_added', this.childAdded)
+      } else {
+        // message に変更があったときのハンドラを解除
+        ref_message.limitToLast(10).off('child_added', this.childAdded)
+      }
     })
+  },
+  methods: {
+    // ログイン処理
+    doLogin() {
+      const provider = new firebase.auth.TwitterAuthProvider()
+      firebase.auth().signInWithPopup(provider)
+    },
+    // ログアウト処理
+    doLogout() {
+      firebase.auth().signOut()
+    },
+    // スクロール位置を一番下に移動
+    scrollBottom() {
+      this.$nextTick(() => {
+        window.scrollTo(0, document.body.clientHeight)
+      })
+    },
+    // 受け取ったメッセージをchatに追加
     // データベースに新しい要素が追加されると随時呼び出される
-    firebase.database().ref('message').on('child_added', snap => {
+    childAdded(snap) {
       const message = snap.val()
-      // 受け取ったメッセージを配列の先頭に挿入する
-      this.chat.unshift({
+      this.chat.push({
         key: snap.key,
         name: message.name,
         image: message.image,
         message: message.message
       })
-    })
-  },
-  methods: {
+      this.scrollBottom()
+    },
     doSend() {
-      if (this.input.length) {
-        // データベースにメッセージを追加
+      if (this.user.uid && this.input.length) {
+        // firebase にメッセージを追加
         firebase.database().ref('message').push({
           message: this.input,
           name: this.user.displayName,
           image: this.user.photoURL
-        }, () => { this.input = '' }) // フォームを空にする
+        }, () => {
+          this.input = '' // フォームを空にする
+        })
       }
-    },
-    doLogin() {
-      const provider = new firebase.auth.TwitterAuthProvider()
-      firebase.auth().signInWithPopup(provider)
-    },
-    doLogout() {
-      firebase.auth().signOut()
     }
   }
 }
+</script>
 ```
+
+長いため CSS は別ファイルにしました。[app.css](/demo/firebase/app.css)
 
 <code-caption>チャット画面のイメージ</code-caption>
 <p align="center"><img src="/images/firebase/firebase-image.png"></p>
 
 Firebase と Vue.js を使えば、これだけのコードでリアルタイムに更新されるチャットのプロトタイプが作成できました。
+
+## コメント
+
+まったくコンポーネントを分けていないので、正直なところ VueCLI を使っている意味があまりないのですが、実際にはメッセージアイテムや入力フォーム、メニューなどを細かく分けたり、Vuex を利用していくといいでしょう(๑'ᴗ'๑)
+
+Firebase を利用するうえで一番大変なのはルールの定義なのですが（個人的感想）、入室パスワードを設定できるルームを作れるように、拡張してみても面白いと思います。
+
+より詳しくは、[Firebase のドキュメント](https://firebase.google.com/docs/?hl=ja)をご覧ください。

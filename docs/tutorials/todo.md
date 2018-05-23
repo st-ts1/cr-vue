@@ -1,16 +1,18 @@
 # ToDoリストを作りながら学習しよう！
 
-このチュートリアルでは、書籍の CHAPTER 1～4 で解説しているいろいろな機能を使って、次のような ToDo リストを作成します。
+このチュートリアルでは、書籍の CHAPTER 1～4 で解説しているいろいろな機能を使って、ToDo リストを作成します。
+チュートリアルの流れから、Vue.js の基本機能が何を行ってくれるのか？を知ることができるようになっています。
+
+## 完成形
+
+次のような ToDo リストを作成します。
 
 - ToDo の追加・削除
 - 作業中・完了の作業状態の切りかえ
 - 作業状態ごとの表示の絞り込み
 
-チュートリアルの流れから、Vue.js の基本機能が何を行ってくれるのか？を、知ることができるようになっています。
-
-## 完成形
-
-- [todo.html](/demo/tutorial-todo/todo.html)
+<code-caption>画面のイメージ</code-caption>
+![todo-image](/images/todo/todo-image.png)
 
 ローカルストレージを使っているため、保存したデータを他の端末から見ることはできません。
 
@@ -18,6 +20,7 @@
 
 使用するファイルは「index.html」「main.js」「main.css」の3つのファイルと、CDN からスタンドアロン版の Vue.js ファイルを読み込みます。
 
+- [index.html](#完全な-html)
 - [main.js](/demo/tutorial-todo/main.js)
 - [main.css](/demo/tutorial-todo/main.css)
 
@@ -528,3 +531,78 @@ Mustache で `labels` オブジェクトを通すように変更します。
 
 <page-info page="134">フィルタ</page-info>
 
+## 完全な HTML
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js App</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+  <div id="app">
+    <h1>チュートリアルToDoリスト</h1>
+
+    <!-- ★STEP11 -->
+    <label v-for="label in options" >
+      <input type="radio"
+        v-model="current"
+        v-bind:value="label.value">{{ label.label }}
+    </label>
+      
+    <!-- ★STEP12 -->
+    （{{ computedTodos.length }} 件を表示）
+
+    <!-- ★STEP4 リスト用テーブル -->
+    <table>
+      <thead v-pre>
+        <tr>
+          <th class="id">ID</th>
+          <th class="comment">コメント</th>
+          <th class="state">状態</th>
+          <th class="button">-</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ★STEP5 ToDo の要素をループ -->
+        <tr
+          v-for="item in computedTodos"
+          v-bind:key="item.id"
+          v-bind:class="{done:item.state}">
+          <th>{{ item.id }}</th>
+          <td>{{ item.comment }}</td>
+          <td class="state">
+            <!-- ★STEP10 状態変更ボタン -->
+            <button v-on:click="doChangeState(item)">
+              {{ labels[item.state] }}
+            </button>
+          </td>
+          <td class="button">
+            <!-- ★STEP10 削除ボタン -->
+            <button v-on:click.ctrl="doRemove(item)">
+              削除
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>※削除ボタンはコントロールキーを押しながらクリックして下さい</p>
+
+    <!-- ★STEP6 -->
+    <h2>新しい作業の追加</h2>
+    <form class="add-form" v-on:submit.prevent="doAdd">
+      <!-- コメント入力フォーム -->
+      コメント <input ref="comment">
+      <!-- 追加ボタンのモック -->
+      <button type="submit">追加</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
+``` 
