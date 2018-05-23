@@ -2,6 +2,7 @@ const path = require('path')
 const crcodeLoader = require.resolve('./utils/crcode-loader.js')
 
 module.exports = {
+  ga: 'UA-119776733-1',
   locales: {
     '/': {
       lang: 'ja',
