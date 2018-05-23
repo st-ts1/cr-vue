@@ -2,9 +2,11 @@
 
 ## デモ
 
+<client-only>
 <demo-block>
   <examples-loading-index/>
 </demo-block>
+</client-only>
 
 ## 使用している主な機能
 

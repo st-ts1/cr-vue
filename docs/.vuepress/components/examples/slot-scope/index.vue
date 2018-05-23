@@ -33,8 +33,8 @@ export default {
         { value: 'OprionValue1', label: 'Option Label 1', color: '#0098c7' },
         { value: 'OprionValue2', label: 'Option Label 2', color: '#ec617a' },
         { value: 'OprionValue3', label: 'Option Label 3', color: '#32a02c' },
-        { value: 'OprionValue4', label: 'Option Label 4', color: '#32a02c' },
-        { value: 'OprionValue5', label: 'Option Label 5', color: '#32a02c' },
+        { value: 'OprionValue4', label: 'Option Label 4', color: '#e87800' },
+        { value: 'OprionValue5', label: 'Option Label 5', color: '#6f4580' },
       ]
     }
   },

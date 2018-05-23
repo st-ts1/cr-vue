@@ -2,9 +2,11 @@
 
 ## デモ
 
+<client-only>
 <demo-block>
   <examples-tab-index/>
 </demo-block>
+</client-only>
 
 あまり面白味がなかったので、トランジションでスライドっぽくしてみました。
 
@@ -19,7 +21,7 @@
 
 ## ソースコード
 
-- [リポジトリ](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/examples/tab)
+- [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/examples/tab)
 
 <code-caption>index.vue</code-caption>
 {include:examples/tab/index.vue}

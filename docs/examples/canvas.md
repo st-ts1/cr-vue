@@ -2,9 +2,11 @@
 
 ## デモ
 
+<client-only>
 <demo-block>
   <examples-canvas-index/>
 </demo-block>
+</client-only>
 
 ## ソースコード
 

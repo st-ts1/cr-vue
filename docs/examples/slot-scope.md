@@ -8,9 +8,11 @@ pageClass: custom-page-class
 
 ## デモ
 
+<client-only>
 <demo-block>
   <examples-slot-scope-index/>
 </demo-block>
+</client-only>
 
 ## 使用している主な機能
 
@@ -22,7 +24,7 @@ pageClass: custom-page-class
 
 ## ソースコード
 
-- [リポジトリ](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/examples/slot-scope)
+- [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/examples/slot-scope)
 
 <code-caption>MySelect.vue</code-caption>
 {include:examples/slot-scope/MySelect.vue}

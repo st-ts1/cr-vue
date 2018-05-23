@@ -5,9 +5,15 @@
 
 ## デモ
 
+<client-only>
 <demo-block>
   <examples-delay-transition-demo2/>
 </demo-block>
+</client-only>
+
+## ソースコード
+
+- [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/examples/delay-transition)
 
 ## 動的なリストを作成
 

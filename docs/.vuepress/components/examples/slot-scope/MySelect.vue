@@ -105,6 +105,7 @@ export default {
     position: absolute;
     content: '▼';
     font-size: 10px;
+    top: 0;
     right: 8px;
     transition: transform 0.4s;
     .my-select.open & {
@@ -142,7 +143,7 @@ export default {
   transition: opacity .25s ease 0s, transform .25s ease 0s;
 }
 .v-leave-active {
-  transition: opacity .25s ease .2s, transform .25s ease .2s;
+  transition: opacity .25s ease .1s, transform .25s ease .1s;
 }
 .v-enter, .v-leave-to {
   opacity: 0;

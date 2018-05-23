@@ -2,9 +2,11 @@
 
 ## デモ
 
+<client-only>
 <demo-block>
   <examples-text-animation-index/>
 </demo-block>
+</client-only>
 
 ## 使用している主な機能
 
