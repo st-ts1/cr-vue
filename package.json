@@ -1,0 +1,31 @@
+{
+  "name": "cr-vue",
+  "version": "1.0.0",
+  "description": "docs",
+  "author": "mio",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "docs:build": "vuepress build docs",
+    "dev": "vuepress dev docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mio3io/cr-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mio3io/cr-vue/issues"
+  },
+  "homepage": "https://github.com/mio3io/cr-vue#readme",
+  "devDependencies": {
+    "markdown-it-attrs": "^2.0.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vuepress": "^0.9.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "vuex": "^3.0.1"
+  }
+}
