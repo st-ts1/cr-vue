@@ -2,10 +2,20 @@ const path = require('path')
 const crcodeLoader = require.resolve('./utils/crcode-loader.js')
 
 module.exports = {
-  lang: 'ja',
-  title: '基礎から学ぶ Vue.js',
-  description: '書籍用サポートページ',
+  locales: {
+    '/': {
+      lang: 'ja',
+      title: '基礎から学ぶ Vue.js',
+      description: '書籍用サポートページ'
+    }
+  },
   head: [
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'twitter:description', content: '基礎から学ぶ Vue.js サポートサイト' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: '基礎から学ぶ Vue.js' }],
+    ['meta', { property: 'og:title', content: '基礎から学ぶ Vue.js' }],
+    ['meta', { property: 'og:image', content: 'https://cr-vue.mio3io.com/summary.png' }],
     ['link', { rel: 'icon', href: '/icon.png' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css' }]
   ],
