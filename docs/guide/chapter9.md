@@ -5,7 +5,7 @@ title: CHAPTER 9
 
 # CH9 VueRouter で SPA を構築
 
-## シンプルなSPA構造
+## S48 シンプルなSPA構造
 
 <page-info page="284～"/>
 
@@ -111,7 +111,7 @@ const router = new VueRouter({
 })
 ```
 
-## パラメータ付きの動的ルートからコンテンツを作成しよう
+## S51 パラメータ付きの動的ルートからコンテンツを作成しよう
 
 <page-info page="295～301"/>
 
@@ -317,7 +317,7 @@ export default {
 </script>
 ```
 
-## ネストされた複雑なページを作成
+## S52 ネストされた複雑なページを作成
 
 <page-info page="302～306"/>
 
@@ -499,7 +499,7 @@ export default {
 </template>
 ```
 
-## ページの遷移にエフェクトを適用する
+## S54 ページの遷移にエフェクトを適用する
 
 ### 簡単なトランジション
 
@@ -621,7 +621,7 @@ export default {
 }
 ```
 
-## その他の機能やオプション
+## S55 その他の機能やオプション
 
 <page-info page="316～318"/>
 

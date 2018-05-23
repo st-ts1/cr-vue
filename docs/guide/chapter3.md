@@ -5,7 +5,7 @@ title: CHAPTER 3
 
 # CH3 イベントとフォーム入力の受け取り
 
-## イベントハンドリング
+## S13 イベントハンドリング
 
 <page-info page="96～104"></page-info>
 
@@ -111,7 +111,7 @@ new Vue({
 <my-component v-on:click="handler"></my-component>
 ```
 
-## フォーム入力バインディング
+## S14 フォーム入力バインディング
 
 <page-info page="105～113"></page-info>
 
@@ -262,7 +262,7 @@ new Vue({
 })
 ```
 
-## マウント要素外のイベントと操作
+## S15 マウント要素外のイベントと操作
 
 <page-info page="114～116"></page-info>
 

@@ -5,8 +5,6 @@ title: CHAPTER 8
 
 # CH8 Vuex でアプリケーションの状態を管理
 
-※ このチャプターの 259、260、261、262 ページで使用している `Vuex.Store()` コンストラクタの閉じ括弧（コードの最後の文字）が不足しておりました。
-
 ::: warning ストアの参照方法について
 
 このサイトを構築している VuePress で複数のストアを扱っている都合上、このページのコードでは、単一ファイルコンポーネントごとに `store.js` を読み込んでいます。
@@ -47,7 +45,7 @@ import store from './store.js' // main.js からならこうなる
 
 :::
 
-## シンプルなストア構造
+## S42 シンプルなストア構造
 
 <page-info page="255"/>
 
@@ -86,9 +84,24 @@ store.commit('increment')
 console.log(store.state.count) // -> 1
 ```
 
-## コアコンセプト
+## S43 コアコンセプト
 
 <page-info page="258～263"/>
+
+### ステート（state）
+
+```js
+const store = new Vuex.Store({
+  state: {
+    message: 'メッセージ'
+  }
+})
+```
+
+<code-caption>呼び出し方</code-caption>
+```js
+store.state.message
+```
 
 ### ゲッター（getter）
 
@@ -96,7 +109,56 @@ console.log(store.state.count) // -> 1
 
 <code-caption>src/store.js</code-caption>
 
-<code-caption>src/App.vue</code-caption>
+```js
+const store = new Vuex.Store({
+  state: {
+    count: 0,
+    list: [
+      { id: 1, name: 'りんご', price: 100 },
+      { id: 2, name: 'ばなな', price: 200 },
+      { id: 3, name: 'いちご', price: 300 }
+    ]
+  },
+  getters: {
+    // 単純にステートを返す
+    count(state, getters, rootState, rootGetter) {
+      return state.count
+    },
+    // リストの各要素の price プロパティの中から最大数値を返す
+    max(state) {
+      return state.list.reduce((a, b) => {
+        return a.price > b.price ? a.price : b.price
+      }, 0)
+    },
+    // 引数付きゲッター
+    // listからidが一致する要素を返す
+    item(state) {
+      // 引数を使用するためアロー関数を返している
+      return id => state.list.find(el => el.id === id)
+    },
+    // 別のゲッターを使うこともできる
+    name(state, getters) {
+      return id => getters.item(id).name
+    }
+  }
+})
+```
+
+<code-caption>呼び出し方</code-caption>
+```js
+store.getters.count
+store.getters.max
+```
+
+<code-caption>呼び出し方（引数付き）</code-caption>
+```js
+store.getters.item(1)
+store.getters.name(1)
+```
+
+- [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/guide/ch8/s43)
+
+<demo-block demo="guide-ch8-s43-src-App"/>
 
 ::: tip
 
@@ -106,11 +168,44 @@ console.log(store.state.count) // -> 1
 
 :::
 
-<demo-block>
-  <p>example-S43</p>
-</demo-block>
+### ミューテーション（mutations）
 
-## コンポーネントでストアを使用しよう
+```js
+const store = new Vuex.Store({
+  // ...
+  mutations: {
+    mutationType(state, payload) {
+      state.count = payload
+    }
+  }
+})
+```
+
+<code-caption>呼び出し方</code-caption>
+```js
+store.commit('mutationType', payload)
+```
+
+### アクション（actions）
+
+```js
+const store = new Vuex.Store({
+  // ...
+  actions: {
+    actionType({ commit }, payload) {
+      // アクション内からコミットする
+      commit('mutationType')
+    }
+  }
+})
+```
+
+<code-caption>呼び出し方</code-caption>
+```js
+store.dispatch('actionType', payload)
+```
+
+## S44 コンポーネントでストアを使用しよう
 
 <page-info page="264～269"/>
 
@@ -119,12 +214,14 @@ console.log(store.state.count) // -> 1
 <page-info page="264"/>
 
 <code-caption>src/store.js</code-caption>
+{include:guide/ch8/s44/src/store.js}
 
 ### メッセージを使用する
 
 <page-info page="265"/>
 
 <code-caption>src/App.vue</code-caption>
+{include:guide/ch8/s44/src/App.vue}
 
 ### メッセージを更新する
 
@@ -133,12 +230,11 @@ console.log(store.state.count) // -> 1
 「ステートやゲッターに `v-model` を使用する」もまとめています。
 
 <code-caption>src/components/EditForm.vue</code-caption>
+{include:guide/ch8/s44/src/components/EditForm.vue}
 
-<demo-block>
-  <p>example-S44</p>
-</demo-block>
+<demo-block demo="guide-ch8-s44-src-App"/>
 
-## モジュールで大きくなったストアを分割する
+## S45 モジュールで大きくなったストアを分割
 
 <page-info page="270～277"/>
 
@@ -226,7 +322,7 @@ store.commit('moduleA/update') // -> moduleA の update をコミット
 store.commit('moduleB/update') // -> moduleB の update をコミット
 ```
 
-### ネームスペース付きモジュールから外部へのアクセス
+### ネームスペース付きモジュールからのアクセス
 
 <page-info page="274"/>
 
@@ -347,7 +443,7 @@ store.dispatch('moduleB/load', '/path/b.json')
 
 ストアの再利用は、主に管理画面などを作成するときに便利です！
 
-## その他の機能やオプション
+## S46 その他の機能やオプション
 
 <page-info page="278～280"/>
 

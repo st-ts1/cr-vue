@@ -34,6 +34,11 @@
     <td>259～262</td>
     <td>コアコンセプトのセクションで使用している <code>Vuex.Store()</code> コンストラクタの閉じ括弧「<code>)</code>」（コードの一番最後の文字）が不足していました</td>
   </tr>
+  <tr>
+    <td>8</td>
+    <td>259</td>
+    <td>▼呼び出し方 誤 <code>store.state.count</code> 正 <code>store.state.message</code></td>
+  </tr>
   </tbody>
 </table>
 

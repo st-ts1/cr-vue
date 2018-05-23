@@ -5,7 +5,7 @@ title: CHAPTER 6
 
 # CH6 トランジションとアニメーション
 
-## トランジションとは
+## S28 トランジションとは
 
 <page-info page="194～197"/>
 
@@ -48,7 +48,7 @@ new Vue({
 
 <demo-block demo="guide-ch6-demo01"/>
 
-## 単一要素トランジション
+## S29 単一要素トランジション
 
 ### EnterとLeaveで別々のスタイルを定義
 
@@ -168,7 +168,7 @@ new Vue({
 
 <demo-block demo="guide-ch6-demo05"/>
 
-## リストトランジション
+## S30 リストトランジション
 
 <page-info page="206～209"/>
 
@@ -303,7 +303,7 @@ new Vue({
 
 :::
 
-## SVGのトランジション
+## S31 SVGのトランジション
 
 <page-info page="210～211"/>
 
@@ -361,7 +361,7 @@ new Vue({
 
 ※ 古いブラウザでは動作しない場合があります。
 
-## トランジションフック
+## S32 トランジションフック
 
 <page-info page="212～213"/>
 

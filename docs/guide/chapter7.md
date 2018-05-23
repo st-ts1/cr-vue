@@ -5,7 +5,7 @@ title: CHAPTER 7
 
 # CH7 より大規模なアプリケーション開発
 
-## 単一ファイルコンポーネントとは
+## S35 単一ファイルコンポーネントとは
 
 <page-info page="221～225"/>
 
@@ -36,7 +36,7 @@ title: CHAPTER 7
 </style>
 ```
 
-## Vue CLIの導入
+## S38 Vue CLIの導入
 
 <page-info page="231～237"/>
 
@@ -64,7 +64,7 @@ new Vue({
 })
 ```
 
-## Vue.jsプラグイン
+## S39 Vue.jsプラグイン
 
 <page-info page="238～241"/>
 
@@ -117,7 +117,7 @@ Vue.component('my-component', {
 })
 ```
 
-## ES2015 で書いてみよう
+## S40 ES2015 で書いてみよう
 
 <page-info page="242～250"/>
 

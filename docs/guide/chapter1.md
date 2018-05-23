@@ -5,7 +5,7 @@ title: CHAPTER 1
 
 # CH1 Vue.js とフレームワークの基礎知識
 
-## インストール
+## S04 インストール
 
 <page-info page="36"></page-info>
 
@@ -72,7 +72,7 @@ var app = new Vue({
 - [JSFiddle](https://jsfiddle.net/)
 - [CodeSandbox](https://codesandbox.io/)
 
-## Vue.js の基本機能
+## S05 Vue.js の基本機能
 
 <page-info page="38～42"></page-info>
 

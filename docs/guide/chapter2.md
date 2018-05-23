@@ -5,7 +5,7 @@ title: CHAPTER 2
 
 # CH2 データの登録と更新
 
-## テキストと属性のデータバインディング
+## S08 テキストと属性のデータバインディング
 
 <page-info page="54～66"></page-info>
 
@@ -142,10 +142,9 @@ new Vue({
 :::
 
 
-## リストデータの表示と更新
+## S10 リストデータの表示と更新
 
 <page-info page="70～84"></page-info>
-
 
 ### 要素を繰り返し描画する
 
@@ -360,7 +359,7 @@ new Vue({
 })
 ```
 
-## DOMを直接参照する$elと$refs
+## S11 DOMを直接参照する$elと$refs
 
 <page-info page="85"></page-info>
 
@@ -393,7 +392,7 @@ new Vue({
 })
 ```
 
-## テンプレート制御ディレクティブ
+## S12 テンプレート制御ディレクティブ
 
 <page-info page="88"></page-info>
 
