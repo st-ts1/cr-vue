@@ -150,7 +150,7 @@ import ProductList from '@/views/ProductList'
 import Product from '@/views/Product'
 Vue.use(VueRouter)
 
-export default new VueRouter({
+const router = new VueRouter({
   routes: [
     {
       path: '/',
@@ -166,7 +166,6 @@ export default new VueRouter({
     }
   ]
 })
-// 生成したVueRouterインスタンスをエクスポート
 export default router
 ```
 
@@ -188,7 +187,7 @@ export default router
 
 <code-caption>src/router.js</code-caption>
 ```js
-export default new VueRouter({
+const router = new VueRouter({
   routes: [
     // ...
     {
@@ -614,6 +613,7 @@ router.afterEach(() => {
 
 ```js
 export default {
+  // ...
   beforeRouteEnter(to, from, next) {
     setTimeout(next, 1000)
     // 遷移をガードする場合は view/end のコミットもする
