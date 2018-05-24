@@ -6,7 +6,7 @@
 書籍と合わせて読んでいただけたら嬉しいです🐹
 
 コードを探したい場合は、ヘッダーの検索フォームに見出しの名前を入力すると見つけやすいです。
-ちなみに、掲載してない場合もあります😢
+掲載してない場合もあります😢
 
 ## 書籍とサポートページの差異について
 
@@ -31,13 +31,13 @@
   <tbody>
   <tr>
     <td>8</td>
-    <td>259～262</td>
-    <td>コアコンセプトのセクションで使用している <code>Vuex.Store()</code> コンストラクタの閉じ括弧「<code>)</code>」（コードの一番最後の文字）が不足していました</td>
+    <td>259</td>
+    <td>▼呼び出し方 誤 <code>store.state.count</code> 正 <code>store.state.message</code></td>
   </tr>
   <tr>
     <td>8</td>
-    <td>259</td>
-    <td>▼呼び出し方 誤 <code>store.state.count</code> 正 <code>store.state.message</code></td>
+    <td>259～262</td>
+    <td>コアコンセプトのセクションで使用している <code>Vuex.Store()</code> コンストラクタの閉じ括弧「<code>)</code>」（コードの一番最後の文字）が不足していました</td>
   </tr>
   </tbody>
 </table>
