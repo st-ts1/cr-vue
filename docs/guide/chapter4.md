@@ -351,3 +351,133 @@ new Vue({
   }
 })
 ```
+
+## S18 フィルタでテキストの変換処理を行う
+
+<page-info page="134～136"/>
+
+### フィルタの使い方
+
+<page-info page="134"/>
+
+```js
+new Vue({
+  el: '#app',
+  data: {
+    price: 19800
+  },
+  filters: {
+    localeNum: function (val) {
+      return val.toLocaleString()
+    }
+  }
+})
+```
+
+### 複数のフィルタをつなげて使用する
+
+<page-info page="136"/>
+
+```js
+new Vue({
+  el: '#app',
+  filters: {
+    // 小数点以下を第2位に丸めるフィルタ
+    round: function (val) {
+      return Math.round(val * 100) / 100
+    },
+    // 度からラジアンに変換するフィルタ
+    radian: function (val) {
+      return val * Math.PI / 180
+    }
+  }
+})
+```
+
+```html
+180 度は {{ 180 | radian | round }} ラジアンだよ
+```
+
+## S19 カスタムディレクティブ
+
+<page-info page="137～"/>
+
+### カスタムディレクティブの使い方
+
+<page-info page="137"/>
+
+```js
+new Vue({
+  el: '#app',
+  directives: {
+    focus: {
+      // 紐付いている要素がDOMに挿入されるとき
+      inserted: function (el) {
+        el.focus() // 要素にフォーカスを当てる
+      }
+    }
+  }
+})
+```
+
+```html
+<input type="text" v-focus>
+```
+
+### 使用可能なフック
+
+<page-info page="139"/>
+
+```js
+Vue.directive('example', {
+  bind: function (el, binding) {
+    console.log('v-example bind')
+  },
+  inserted: function (el, binding) {
+    console.log('v-example inserted')
+  },
+  update: function (el, binding) {
+    console.log('v-example update')
+  },
+  componentUpdated: function (el, binding) {
+    console.log('v-example componentUpdated')
+  },
+  unbind: function (el, binding) {
+    console.log('v-example unbind')
+  }
+})
+```
+
+## S20 nextTickで更新後のDOMにアクセスする
+
+<page-info page="143～144"/>
+
+### 更新後のDOMの高さを取得しよう
+
+<page-info page="144"/>
+
+```html
+<button v-on:click="list.push(list.length+1)">追加</button>
+<ul ref="list">
+  <li v-for="item in list">{{ item }}</li>
+</ul>
+```
+
+```js
+new Vue({
+  el: '#app',
+  data: {
+    list: []
+  },
+  watch: {
+    list: function () {
+      // 更新後のul要素の高さを取得できない…
+      console.log('通常:', this.$refs.list.offsetHeight)
+      // nextTickを使えばできる！
+      this.$nextTick(function () {
+        console.log('nextTick:', this.$refs.list.offsetHeight)
+      })
+    }
+  }
+})
+```
