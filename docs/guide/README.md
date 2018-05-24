@@ -44,17 +44,17 @@
 
 書籍中の誤記については、書籍2ページに記載されている「『基礎から学ぶ Vue.js』サポート係」までご連絡ください。
 
-サポートページの誤記については、[サポートページのリポジトリ](https://github.com/mio3io/cr-vue) Issues / PullRequest または、著者 Twitter までご連絡ください。
+サポートページの誤記については、[サポートページのリポジトリ](https://github.com/mio3io/cr-vue) Issues / PullRequest または、筆者の Twitter までご連絡ください。
 
 - [GitHub サポートページ Issues](https://github.com/mio3io/cr-vue/issues)
-- [著者 Twitter](https://twitter.com/mio3io)
+- [筆者 Twitter](https://twitter.com/mio3io)
 
 ## 質問について
 
-Vue.js に関する技術的な質問については、サポートページのリポジトリ Issues または、著者 Twitter までお気軽にどうぞ！
+Vue.js に関する技術的な質問については、サポートページのリポジトリ Issues または、筆者の Twitter までお気軽にどうぞ！
 質問の際、質問内容の該当ページをお書き下さい。
 書籍と関係のない質問については、お答えできない場合があります。
 ご了承下さい🙏
 
 - [GitHub サポートページ Issues](https://github.com/mio3io/cr-vue/issues)
-- [著者 Twitter](https://twitter.com/mio3io)
+- [筆者 Twitter](https://twitter.com/mio3io)
