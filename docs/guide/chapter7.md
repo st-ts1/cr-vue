@@ -36,6 +36,12 @@ title: CHAPTER 7
 </style>
 ```
 
+## S37 Node.jsの導入
+
+- [Node.js 日本公式サイト](https://nodejs.org/ja/)
+- [npm Documentation](https://docs.npmjs.com/)
+- [Babel 公式サイト](https://babeljs.io/)
+
 ## S38 Vue CLIの導入
 
 <page-info page="231～237"/>
@@ -148,6 +154,8 @@ array.length = 0
 console.log(array) // -> []
 ```
 
+- [MDN web docs - const](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const)
+
 ### 関数とメソッドの書き方
 
 #### function の省略
@@ -160,6 +168,8 @@ new Vue({
   }
 })
 ```
+
+- [MDN web docs - メソッド定義](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions)
 
 #### アロー関数
 
@@ -185,6 +195,8 @@ const newArray = array.map((el, index) => el * 2)
 const newArray = array.map(el => ({ value: el * 2 }))
 ```
 
+- [MDN web docs - アロー関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/arrow_functions)
+
 ### テンプレートリテラル
 
 ```js
@@ -196,6 +208,8 @@ const template = `
 console.log(template)
 ```
 
+- [MDN web docs - テンプレート文字列](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/template_strings)
+
 ### プロパティのショートハンド
 
 ```js
@@ -203,6 +217,8 @@ const a = 'foo'
 const b = 'bar'
 const newObject = { a, b }
 ```
+
+- [MDN web docs - オブジェクト初期化子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 
 ### 分割代入
 
@@ -222,6 +238,8 @@ function myFunction({ id, name }) {
 myFunction({ id: 1, name: 'りんご' })
 ```
 
+- [MDN web docs - 分割代入](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
 ### スプレッド演算子
 
 ```js
@@ -231,6 +249,8 @@ myFunction(...array)
 // arrayを展開して4を加えた新しい一次配列を作成
 const newArray = [...array, 4] // -> (4) [1, 2, 3, 4]
 ```
+
+- [MDN web docs - スプレッド演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 ### 配列メソッド
 
@@ -245,6 +265,8 @@ const result = array.find(el => el.id === 2)
 console.log(result) // -> { id: 2, name: 'ばなな' }
 ```
 
+- [MDN web docs - Array.prototype.find()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+
 #### findIndex
 
 ```js
@@ -255,6 +277,8 @@ const array = [
 const result = array.findIndex(el => el.id === 2)
 console.log(result) // -> 1
 ```
+
+- [MDN web docs - Array.prototype.findIndex()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
 
 ### Promise
 
@@ -296,3 +320,5 @@ myFunction().then().catch().finally(() => {
   // 成功でも失敗でも行われる
 })
 ```
+
+- [MDN web docs - Promise](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)

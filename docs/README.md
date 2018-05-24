@@ -43,6 +43,7 @@ footer: Copyright © 2018 mio / C&R研究所
 </section>
 
 - [Vue.js 日本公式サイトへ](https://jp.vuejs.org/)
+- [Vue.js 日本ユーザーグループ](https://github.com/vuejs-jp/home)
 - [出版社のサイトへ 株式会社 C&R研究所](http://www.c-r.com/)
 - [著者のサイトへ mio3io](https://mio3io.com/)
 

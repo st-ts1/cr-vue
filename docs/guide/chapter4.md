@@ -99,19 +99,6 @@ new Vue({
 
 <demo-block demo="guide-ch4-demo03"/>
 
-<!-- ★ 例題 -->
-<exercise-block>
-  <template slot="q">
-    あれをこうしていいかんじにあれしよう
-  </template>
-  <div slot="a">
-
-  ```js
-  new Vue()
-  ```
-  </div>
-</exercise-block>
-
 ### 算出プロパティのキャッシュ機能
 
 <page-info page="123"/>

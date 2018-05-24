@@ -208,3 +208,18 @@ var app = new Vue({
 ```
 
 <demo-block demo="guide-ch1-demo06"/>
+
+<!-- ★ 例題
+<exercise-block>
+  <template slot="q">
+    あれをこうしていいかんじにあれしよう
+  </template>
+  <div slot="a">
+
+  ```js
+  new Vue()
+  ```
+
+  </div>
+</exercise-block>
+-->

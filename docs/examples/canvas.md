@@ -19,4 +19,3 @@
 {include:examples/canvas/MyCanvas.vue}
 
 ライフサイクルの `mounted` 以降で `$el` や `$refs` などを使ってアクセスしましょう。
-Canvas 操作については何度かブログでも書いているため、よかったらそちらもご覧ください。
