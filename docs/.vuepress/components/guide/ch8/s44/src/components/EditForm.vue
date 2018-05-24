@@ -1,7 +1,7 @@
 <template>
   <div class="edit-form">
-    <h3>refs とイベントを使った場合</h3>
-    <input type="text" ref="input" :value="message" @input="doUpdate">
+    <h3>バインドとイベントを使った場合</h3>
+    <input type="text" :value="message" @input="doUpdate">
     <h3>v-model を使った場合</h3>
     <input v-model="message2">
   </div>
@@ -21,9 +21,9 @@ export default {
     }
   },
   methods: {
-    doUpdate() {
+    doUpdate(event) {
       // input の値を持ってディスパッチ
-      store.dispatch('doUpdate', this.$refs.input.value)
+      store.dispatch('doUpdate', event.target.value)
     }
   }
 }
