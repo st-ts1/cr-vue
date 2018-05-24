@@ -72,6 +72,12 @@ var app = new Vue({
 - [JSFiddle](https://jsfiddle.net/)
 - [CodeSandbox](https://codesandbox.io/)
 
+Fork してご利用下さい。
+
+- [https://codepen.io/mio3io/pen/rvgwzv](https://codepen.io/mio3io/pen/rvgwzv)
+- [https://jsfiddle.net/mio/rd5nzwdt/](https://jsfiddle.net/mio/rd5nzwdt/)
+- [https://codesandbox.io/s/vue](https://codesandbox.io/s/vue)
+
 ## S05 Vue.js の基本機能
 
 <page-info page="38～42"></page-info>
