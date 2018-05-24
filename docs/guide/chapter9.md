@@ -111,7 +111,7 @@ const router = new VueRouter({
 })
 ```
 
-## S51 パラメータ付きの動的ルートからコンテンツを作成しよう
+## S51 動的ルートからコンテンツを作成しよう
 
 <page-info page="295～301"/>
 
@@ -182,7 +182,7 @@ export default router
 </template>
 ```
 
-### パラメータを props としてコンポーネントに渡す
+### パラメータをpropsとしてコンポーネントに渡す
 
 <page-info page="297"/>
 
@@ -688,7 +688,7 @@ export default {
 
 <page-info page="317"/>
 
-より実践的な例は、チュートリアルの「[認証付きの簡易チャットを作ろう](/tutorials/firebase.html)」をご覧ください。
+より実践的な例は、チュートリアルの「[認証付きの簡易チャットを作ろう](/tutorials/firebase.html)」や、[こちらのリポジトリ](https://github.com/mio3io/vue-test/tree/master/src/router)のコードをご覧ください。
 
 ```js
 const router = new VueRouter({

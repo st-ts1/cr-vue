@@ -11,6 +11,12 @@
 </demo-block>
 </client-only>
 
+## 使用している主な機能
+
+<page-info page="205">リストトランジション</page-info>
+<page-info page="212">トランジションフック</page-info>
+<page-info page="120">算出プロパティ computed</page-info>
+
 ## ソースコード
 
 - [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/examples/delay-transition)
@@ -82,15 +88,16 @@ data(){
 },
 methods: {
   // ...
-  add: function() {
-    // 追加ならフラフを立てる
+  doAdd() {
+    // 追加ならフラグを立てる
     this.addEnter = true
     const newNumber = Math.max.apply(null, this.list) + 1
     const index = Math.floor(Math.random() * (this.list.length + 1))
     this.list.splice(index, 0, newNumber)
   },
+  // ...
   beforeEnter(el) {
-    this.$nextTick(function() {
+    this.$nextTick(() => {
       if (!this.addEnter) {
         // 追加でなければディレイを付ける
         el.style.transitionDelay = 100 * parseInt(el.dataset.index, 10) + 'ms'
@@ -119,5 +126,3 @@ methods: {
 スクロール量に応じた処理や、アニメーション効果はウェブサイトのデザインに拘るなら欠かせない部分です。
 仮想 DOM を通して構築される DOM にアクセスする場合 `nextTick` をどこで使うかがキモになります。
 `nextTick` の使い方についてはCHAPTER3で詳しく説明しています。
-
-こういった細かい機能を活用することで、独創的なウェブデザインを簡単に表現することができます！

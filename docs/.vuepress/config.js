@@ -12,7 +12,7 @@ module.exports = {
   },
   head: [
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['meta', { name: 'twitter:description', content: '基礎から学ぶ Vue.js サポートサイト' }],
+    ['meta', { name: 'twitter:description', content: '基礎から学ぶ Vue.js サポートページ' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: '基礎から学ぶ Vue.js' }],
     ['meta', { property: 'og:title', content: '基礎から学ぶ Vue.js' }],

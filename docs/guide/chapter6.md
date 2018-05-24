@@ -451,10 +451,12 @@ new Vue({
 ```
 
 ```js
-beforeLeave: function (el) {
-  var style = window.getComputedStyle(el)
-  el.style.left = el.offsetLeft - parseFloat(style.marginLeft, 10) + 'px'
-  el.style.top = el.offsetTop - parseFloat(style.marginTop, 10) + 'px'
+methods: {
+  beforeLeave: function (el) {
+    var style = window.getComputedStyle(el)
+    el.style.left = el.offsetLeft - parseFloat(style.marginLeft, 10) + 'px'
+    el.style.top = el.offsetTop - parseFloat(style.marginTop, 10) + 'px'
+  }
 }
 ```
 

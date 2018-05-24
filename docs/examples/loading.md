@@ -29,3 +29,7 @@
 
 <code-caption>AfterLoadContent.vue</code-caption>
 {include:examples/loading/AfterLoadContent.vue}
+
+## コメント
+
+Katashin さんの [vue-size-provider](https://github.com/ktsn/vue-size-provider) を利用すると、要素の高さを監視して、簡単に高さのアニメーションを適用できます。

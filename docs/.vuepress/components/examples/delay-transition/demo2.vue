@@ -47,7 +47,7 @@ export default {
     },
     // トランジション開始でインデックス*100ms分のディレイを付与
     beforeEnter(el) {
-      this.$nextTick(function() {
+      this.$nextTick(() => {
         if (!this.addEnter) {
           // 追加でなければディレイを付与
           el.style.transitionDelay = 100 * parseInt(el.dataset.index, 10) + 'ms'
