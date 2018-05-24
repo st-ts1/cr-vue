@@ -51,7 +51,7 @@ module.exports = {
         //'fixed-header.md',
         //'svg-graph.md',
         'canvas.md',
-        'slot-scope.md',
+        //'slot-scope.md',
         //'nexted-route',
       ],
       '/tutorials/': [
