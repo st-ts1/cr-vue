@@ -10,7 +10,10 @@
 
 ## 使用している主な機能
 
-<page-info page="62">クラスのデータバインディング</page-info>
+<page-info page="62">クラスとスタイルのデータバインディング</page-info>
+<page-info page="205">リストトランジション</page-info>
+<page-info page="120">算出プロパティ computed</page-info>
+<page-info page="128">ウォッチャ watch</page-info>
 
 ## ソースコード
 
