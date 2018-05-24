@@ -77,4 +77,12 @@ footer: Copyright © 2018 mio / C&R研究所
 .content.custom .home-book-thumb {
   max-width: inherit;
 }
+@media screen and (max-width: 767px) {
+  .home-book {
+    display: block;
+  }
+  .home-book-image {
+    text-align: center;
+  }
+}
 </style>
