@@ -3,12 +3,12 @@
     <div class="tabs">
       <TabItem
         v-for="item in list"
-        v-bind="item" :key="item.id" :current="current"
-        @select="current=item"/>
+        v-bind="item" :key="item.id"
+        v-model="currentId"/>
     </div>
     <div class="contents">
       <transition>
-        <section class="item" :key="current.id">
+        <section class="item" :key="currentId">
           {{ current.content }}
         </section>
       </transition>
@@ -22,7 +22,7 @@ export default {
   components: { TabItem },
   data() {
     return {
-      current: {},
+      currentId: 1,
       list: [
         { id: 1, label: 'Tab1', content: 'コンテンツ1' },
         { id: 2, label: 'Tab2', content: 'コンテンツ2' },
@@ -30,8 +30,10 @@ export default {
       ]
     }
   },
-  created() {
-    this.current = this.list[0]
+  computed: {
+    current() {
+      return this.list.find(el => el.id === this.currentId) || {}
+    }
   }
 }
 </script>

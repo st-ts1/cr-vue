@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('select')" :class="[active, 'tab']">
+  <button @click="$emit('input', id)" :class="[active, 'tab']">
     {{ label }}
   </button>
 </template>
@@ -9,11 +9,11 @@ export default {
   props: {
     id: Number,
     label: String,
-    current: Object
+    value: Object
   },
   computed: {
     active() {
-      return this.current.id === this.id ? 'active' : false
+      return this.value === this.id ? 'active' : false
     }
   }
 }
