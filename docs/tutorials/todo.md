@@ -121,7 +121,8 @@ var todoStorage = {
 ## STEP3 データの構想
 
 さあ、ここから実際に作るコードです！
-アプリケーションに付けたい機能から考えると、必要になるデータは次のようなものでしょうか。
+
+どんなデータが必要になりそうかを、ざっくりと考えておきましょう。
 
 - ToDo のリストデータ
   - 要素の固有ID
@@ -130,9 +131,11 @@ var todoStorage = {
 - 作業中・完了・すべて などオプションラベルで使用する名称リスト
 - 現在絞り込みしている作業状態
 
+アプリケーションに付けたい機能から考えると、こんなところでしょうか。
+
 ## STEP4 リスト用テーブル
 
-次に、ToDo リストデータを表示するテーブルの枠組みを作成します。
+まずは、ToDo リストデータを表示するテーブルの枠組みを作成します。
 
 ```html
 <div id="app">
@@ -147,7 +150,7 @@ var todoStorage = {
       </tr>
     </thead>
     <tbody>
-      <!-- [1] ここに <tr> で ToDo の要素を1行づつ繰り返し表示 -->
+      <!-- [1] ここに <tr> で ToDo の要素を1行づつ繰り返し表示したい -->
     </tbody>
   </table>
 </div>
@@ -168,7 +171,7 @@ var app = new Vue({
 })
 ```
 
-テーブルタグの [1] で要素を分だけ繰り返し表示させるには、対象となるタグ（ ここでは `<tr>` タグ ）に `v-for` ディレクティブを使用します。
+テーブルタグの [1] で配列要素の数だけ繰り返し表示させるには、対象となるタグ（ ここでは `<tr>` タグ ）に `v-for` ディレクティブを使用します。
 
 ```html
 <!-- ここに <tr> で ToDo の要素を1行づつ繰り返し表示 -->
@@ -215,7 +218,7 @@ v-for="各要素の一時的な名前 in 繰り返したい配列やオブジェ
 `ref` 属性を使って参照するための名前をタグに付けておくと、その DOM に直接アクセスできます。
 
 ```html
-<input ref="comment">
+<input type="text" ref="comment">
 ```
 
 `ref` 属性で名前を付けたタグは、メソッド内から次のように使用できます。
@@ -244,7 +247,7 @@ this.$refs.comment.value
 <h2>新しい作業の追加</h2>
 <form class="add-form" v-on:submit.prevent="doAdd">
   <!-- コメント入力フォーム -->
-  コメント <input ref="comment">
+  コメント <input type="text" ref="comment">
   <!-- 追加ボタンのモック -->
   <button type="submit">追加</button>
 </form>
@@ -271,7 +274,7 @@ v-on:submit.prevent="doAdd"
 
 ```js
 new Vue({
-  // 省略...
+  // ...
   methods: {
     // ToDo 追加の処理
     doAdd: function(event, value) {
@@ -322,7 +325,7 @@ watch: {
 
 ```js
 new Vue({
-  // 省略...
+  // ...
   watch: {
     // オプションを使う場合はオブジェクト形式にする
     todos: {
@@ -352,7 +355,7 @@ new Vue({
 
 ```js
 new Vue({
-  // 省略...
+  // ...
   created() {
     // インスタンス作成時に自動的に fetch() する
     this.todos = todoStorage.fetch()
@@ -385,9 +388,9 @@ new Vue({
 
 ```js
 new Vue({
-  // 省略...
+  // ...
   methods: {
-    // 省略...
+    // ...
     // 状態変更の処理
     doChangeState: function(item) {
       item.state = item.state ? 0 : 1
@@ -427,7 +430,7 @@ ToDo リストと同じように動的に作成するため、選択肢の `opti
 
 ```js
 data: {
-  // 省略...
+  // ...
   options: [
     { value: -1, label: 'すべて' },
     { value: 0,  label: '作業中' },
@@ -451,6 +454,8 @@ data: {
 
 `v-model` ディレクティブを使って、ラジオボタンの選択値と `current` データを同期させます。
 ラジオボタンが変更されると、その要素の `label.value` が `current` プロパティへ代入される仕組みです。
+
+<page-info page="105">フォーム入力バインディング v-model</page-info>
 
 ## STEP12 リストの絞り込み機能
 
@@ -495,6 +500,8 @@ new Vue({
 ```
 
 キャッシュ機能があるおかげで、メソッドと違い何度使用しても処理は 1 度しか行われません。
+
+<page-info page="120">算出プロパティ computed</page-info>
 
 ## STEP13 文字列の変換処理
 
@@ -595,7 +602,7 @@ Mustache で `labels` オブジェクトを通すように変更します。
     <h2>新しい作業の追加</h2>
     <form class="add-form" v-on:submit.prevent="doAdd">
       <!-- コメント入力フォーム -->
-      コメント <input ref="comment">
+      コメント <input type="text" ref="comment">
       <!-- 追加ボタンのモック -->
       <button type="submit">追加</button>
     </form>
