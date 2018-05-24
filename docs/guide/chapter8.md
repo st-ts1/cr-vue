@@ -156,6 +156,9 @@ store.getters.item(1)
 store.getters.name(1)
 ```
 
+<code-caption>src/App.vue</code-caption>
+{include:guide/ch8/s43/src/App.vue}
+
 - [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/guide/ch8/s43)
 
 <demo-block demo="guide-ch8-s43-src-App"/>
