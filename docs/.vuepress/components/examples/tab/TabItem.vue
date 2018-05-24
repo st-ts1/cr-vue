@@ -9,7 +9,7 @@ export default {
   props: {
     id: Number,
     label: String,
-    value: Object
+    value: Number
   },
   computed: {
     active() {
