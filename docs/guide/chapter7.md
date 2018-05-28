@@ -36,15 +36,36 @@ title: CHAPTER 7
 </style>
 ```
 
-## S37 Node.jsの導入
+## S37 Node.js の導入
 
 - [Node.js 日本公式サイト](https://nodejs.org/ja/)
 - [npm Documentation](https://docs.npmjs.com/)
 - [Babel 公式サイト](https://babeljs.io/)
 
-## S38 Vue CLIの導入
+## S38 Vue CLI の導入
 
 <page-info page="231～237"/>
+
+### Vue CLI のインストール
+
+<code-caption>Vue CLI をグローバルにインストール</code-caption>
+```bash
+npm install -g vue-cli
+```
+
+### 新しいプロジェクトの作成
+
+<code-caption>プロジェクトの作成</code-caption>
+```bash
+vue init webpack my-app
+```
+
+最後に自動でインストールが開始されない場合は、次のコマンドで `my-app` ディレクトリに移動してモジュールをインストールしてください。
+
+```bash
+cd my-app
+npm install
+```
 
 ### フォルダとファイルの構成
 
@@ -68,6 +89,87 @@ new Vue({
   el: '#app',
   render: h => h(App)
 })
+```
+
+## [おまけ] Vue CLI バージョン3
+
+ここからは、Vue CLI3の説明です。
+
+::: warning
+
+バージョン3のドキュメントは、リポジトリの「docs」フォルダに英語版がありますが、日本語はまだ整備されていません。
+また、ベータ版のため仕様に変更が入ることもあります。不安がある場合はバージョン2を使用してください。
+
+:::
+
+### Vue CLI3 のインストール
+
+`npm install -g vue-cli` の代わりに、次のコマンドで現在開発中のバージョン3の Vue CLI をインストールできます。
+
+<code-caption>Vue CLI3 をグローバルにインストール</code-caption>
+```bash
+npm install -g @vue/cli
+# or yarn がいい場合は…
+yarn global add @vue/cli
+```
+
+### プロジェクトの作成方法
+
+プロジェクトの作成は `vue init webpack my-app` の代わりに、次のコマンドを使用します。
+
+<code-caption>プロジェクトの作成</code-caption>
+```bash
+# プロジェクトの作成
+vue create my-app
+```
+
+Vue CLI3 では、質問内容がだいぶ異なります。
+また、テンプレートを指定するのではなく、質問に答えて必要なパッケージを選択します。
+学習では、一番最初のプリセットで「simple」を選択するか、「Manually select features」を選択して「Babel」「CSS Pre-processors」のみを選択するのがオススメです。
+上下の矢印キーで項目移動、スペースキーでチェックが付けられます。
+
+Vuex と Vue Router については、インストール手順から説明しているため、この時点ではインストールしなくても問題ありません。
+最初の質問でプリセットを選択した場合は、すぐにモジュールのインストールが開始されます。
+
+Vue CLI3 ではビルドツール用のファイルは、ほぼすべて隠蔽されるため、フォルダがスッキリとします。
+ビルド設定のカスタマイズは、プロジェクトルートに `vue.config.js` というファイル作成してそこに追加していきます。
+
+### ディレクトリ構造
+
+「src」ディレクトリの中身はバージョン2と同じです。「public」フォルダには、インデックスの HTML のテンプレートとなる「index.html」ファイルと、ローダーを介さずそのまま公開する静的ファイルが入ります。（つまり、バージョン2の「static」フォルダと同じ）
+
+<code-caption>デフォルト</code-caption>
+```
+.git/ 3では最初から作成される！✨
+public/ そのまま公開したいファイル
+src/
+ ├ assets/
+ ├ components/
+ ├ App.vue
+ └ main.js
+```
+
+<code-caption>Vuex と VueRouterを使う場合はこんなかんじ</code-caption>
+```
+.git/ 
+public/
+src/
+ ├ assets/
+ ├ components/
+ ├ store/ Vuex モジュール
+ ├ views/ ページ用コンポーネント
+ ├ App.vue
+ ├ main.js
+ ├ router.js
+ └ store.js
+```
+
+開発サーバーの起動のコマンドも変わり、次のようになります。
+
+```bash
+npm run serve
+# or
+yarn serve
 ```
 
 ## S39 Vue.jsプラグイン
