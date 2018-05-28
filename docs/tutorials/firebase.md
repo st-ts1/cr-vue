@@ -354,7 +354,7 @@ export default {
 </script>
 ```
 
-長いため CSS は別ファイルにしました。[app.css](/demo/firebase/app.css)
+長いため CSS は別ファイルにしました。[app.css](https://github.com/mio3io/cr-vue/blob/master/codes/firebase/app.css)
 
 <code-caption>チャット画面のイメージ</code-caption>
 <p align="center"><img src="/images/firebase/firebase-image.png"></p>

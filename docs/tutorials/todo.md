@@ -20,9 +20,11 @@
 
 使用するファイルは「index.html」「main.js」「main.css」の3つのファイルと、CDN からスタンドアロン版の Vue.js ファイルを読み込みます。
 
-- [index.html](#完全な-html)
-- [main.js](/demo/tutorial-todo/main.js)
-- [main.css](/demo/tutorial-todo/main.css)
+### こちらは完成形
+
+- [index.html](https://github.com/mio3io/cr-vue/blob/master/codes/tutorial-todo/index.html)
+- [main.js](https://github.com/mio3io/cr-vue/blob/master/codes/tutorial-todo/main.js)
+- [main.css](https://github.com/mio3io/cr-vue/blob/master/codes/tutorial-todo/main.css)
 
 CSS の説明はしていないため、コピペして使用してください。
 
