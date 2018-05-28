@@ -352,6 +352,48 @@ new Vue({
 })
 ```
 
+### フォームを監視してAPIからデータを取得しよう
+
+<page-info page="133"/>
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+<div id="app">
+  <select v-model="current">
+    <option v-for="topic in topics" v-bind:value="topic.value">
+      {{ topic.name }}
+    </option>
+  </select>
+  <div v-for="item in list">{{ item.full_name }}</div>
+</div>
+```
+
+```js
+new Vue({
+  el: '#app',
+  data: {
+    list: [],
+    current: '',
+    topics: [
+      { value: 'vue', name: 'Vue.js' },
+      { value: 'jQuery', name: 'jQuery' }
+    ]
+  },
+  watch: {
+    current: function (val) {
+      // GitHubのAPIからトピックのリポジトリを検索
+      axios.get('https://api.github.com/search/repositories', {
+        params: {
+          q: 'topic:' + val
+        }
+      }).then(function (response) {
+        this.list = response.data.items
+      }.bind(this))
+    }
+  },
+})
+```
+
 ## S18 フィルタでテキストの変換処理を行う
 
 <page-info page="134～136"/>
