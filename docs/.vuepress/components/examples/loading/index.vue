@@ -4,8 +4,13 @@
     <!-- ボーダー付きのラッパーレイヤー -->
     <div class="flexbox-wrapper" :style="{height: height+'px'}">
       <!-- トランジション ＆ $refs.body -->
+      <ul class="flexbox-body" ref="body">
+        <li v-for="item in list" :key="item.id">
+          {{ item.name }} {{ item.price }}
+        </li>
+      </ul>
       <transition>
-        <component :is="current" :list="list" class="flexbox-body" ref="body"/>
+        <Loading v-if="!list.length"/>
       </transition>
     </div>
   </div>
@@ -13,19 +18,13 @@
 
 <script>
 import axios from 'axios'
-import BeforeLoadContent from './BeforeLoadContent.vue'
-import AfterLoadContent from './AfterLoadContent.vue'
+import Loading from './Loading.vue'
 export default {
+  components: { Loading },
   data() {
     return {
-      height: null,
+      height: 0,
       list: []
-    }
-  },
-  // 算出プロパティ
-  computed: {
-    current() {
-      return this.list.length ? AfterLoadContent : BeforeLoadContent
     }
   },
   // ウォッチャ
@@ -34,7 +33,7 @@ export default {
       // nextTick
       this.$nextTick(() => {
         // $refs
-        this.height = this.$refs.body.$el.getBoundingClientRect().height
+        this.height = this.$refs.body.getBoundingClientRect().height
       })
     }
   },
@@ -61,16 +60,15 @@ export default {
   border-radius: 4px;
   overflow: hidden;
   transition: height .4s;
+  min-height: 3em;
 }
 .flexbox-body {
+  margin: 0 0 0 24px;
   padding: 16px;
 }
 /* トランジション用スタイル */
 .v-enter-active, .v-leave-active {
   transition: opacity .4s;
-}
-.v-leave-active {
-  position: absolute;
 }
 .v-enter, .v-leave-to {
   opacity: 0;

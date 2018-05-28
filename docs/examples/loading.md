@@ -24,11 +24,8 @@
 <code-caption>index.vue</code-caption>
 {include:examples/loading/index.vue}
 
-<code-caption>BeforeLoadContent.vue</code-caption>
-{include:examples/loading/BeforeLoadContent.vue}
-
-<code-caption>AfterLoadContent.vue</code-caption>
-{include:examples/loading/AfterLoadContent.vue}
+<code-caption>LoadContent.vue</code-caption>
+{include:examples/loading/Loading.vue}
 
 ## コメント
 
