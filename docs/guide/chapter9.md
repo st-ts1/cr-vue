@@ -5,6 +5,15 @@ title: CHAPTER 9
 
 # CH9 VueRouter で SPA を構築
 
+CodeSandbox の雛形はこちらです。
+
+[https://codesandbox.io/s/2xqzz531zp](https://codesandbox.io/s/2xqzz531zp)
+
+最低限必要なモジュールとファイルのみを追加したものになっています。
+Forkして、いろいろ付け足してみてください😺
+
+※ 下のバーからコンソールも使用できます
+
 ## S48 シンプルなSPA構造
 
 <page-info page="284～"/>

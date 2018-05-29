@@ -5,6 +5,16 @@ title: CHAPTER 8
 
 # CH8 Vuex でアプリケーションの状態を管理
 
+CodeSandbox の雛形はこちらです。
+
+[https://codesandbox.io/s/pw89zq7kjm](https://codesandbox.io/s/pw89zq7kjm)
+
+最低限必要なモジュールとファイルのみを追加したものになっています。
+Forkして、いろいろ付け足してみてください😺
+
+※ 下のバーからコンソールも使用できます
+
+
 ::: warning ストアの参照方法について
 
 このサイトを構築している VuePress で複数のストアを扱っている都合上、このページのコードでは、単一ファイルコンポーネントごとに `store.js` を読み込んでいます。
