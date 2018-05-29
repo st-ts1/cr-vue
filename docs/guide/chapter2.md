@@ -331,6 +331,15 @@ new Vue({
 
 <page-info page="83"></page-info>
 
+<code-caption>list.json</code-caption>
+```json
+[
+  { "id": 1, "name": "スライム", "hp": 100 },
+  { "id": 2, "name": "ゴブリン", "hp": 200 },
+  { "id": 3, "name": "ドラゴン", "hp": 500 }
+]
+```
+
 ```html
 <div id="app">
   <ul>
