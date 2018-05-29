@@ -40,6 +40,8 @@ new Vue({
 })
 ```
 
+<demo-block demo="guide-ch5-demo01"/>
+
 ※ プロパティでの受け取り方は同じ
 
 
@@ -79,6 +81,8 @@ new Vue({
   }
 })
 ```
+
+<demo-block demo="guide-ch5-demo02"/>
 
 #### エラーになるパターン
 
@@ -228,6 +232,8 @@ new Vue({
   }
 })
 ```
+
+<demo-block demo="guide-ch5-demo03"/>
 
 ### 親が持つデータを操作しよう
 
@@ -383,6 +389,8 @@ Vue.component('comp-child', {
   </slot>
 </section>
 ```
+
+<demo-block demo="guide-ch5-demo06"/>
 
 ## S25 コンポーネントの双方向データバインド
 
