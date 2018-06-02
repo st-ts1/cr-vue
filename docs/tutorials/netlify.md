@@ -15,7 +15,7 @@ Git のホスティングサービスと連携した自動デプロイ、SSL/HTT
 特に、ポートフォリオなどの静的サイトには最適です。
 ここでは、GitHub アカウントを使った登録方法を説明します。
 
-ちなみに、このサイトも Netlify を使って公開されています！
+ちなみに、このサイトも Netlify（＋VuePress） を使って公開されています！
 
 ## Netlify の登録
 
@@ -89,14 +89,14 @@ Netlify の管理画面トップの右上にある<span class="num">1</span> 「
 ### Git ホスティングの選択
 
 Git ホスティングサービスの選択画面で <span class="num">2</span> 「GitHub」を選択します。
-認証方法が同じならそのままリポジトリ一覧を取得しますが、別の認証方法の場合は再度GitHub認証を求められる場合があります。
+認証方法が同じなら、そのままリポジトリ一覧を取得しますが、別の認証方法の場合は再度GitHub認証を求められる場合があります。
 
 <code-caption>キャプチャ2.10</code-caption>
 <p align="center"><img src="/images/netlify/netlify-auto-deploy2.png"></p>
 
 ### リポジトリの選択
 
-GitHubアカウントにあるリポジトリの一覧が取得されるので、Netlifyで公開したいリポジトリを選択しましょう。
+GitHubアカウントにあるリポジトリの一覧が取得されるので、Netlify で公開したいリポジトリを選択しましょう。
 
 <code-caption>キャプチャ2.11</code-caption>
 <p align="center"><img src="/images/netlify/netlify-auto-deploy3.png"></p>
@@ -117,7 +117,7 @@ npm run build
 ```
 
 <span class="num">6</span> の公開ディレクトリは、`index.html` のあるフォルダを指します。
-デフォルトの設定では、`dist` フォルダの中に `index.html` が作成されるため、次のように設定します。
+デフォルトの設定では、`dist` フォルダの中に `index.html` が作成されるため次のように設定します。
 
 ```
 dist
@@ -127,7 +127,7 @@ Vue CLI で作成された `package.json` や webpack の設定を編集して�
 
 ### ビルド
 
-初回ビルドはモジュールのインストールに時間がかかるためゆっくり待ちましょう。
+初回ビルドはモジュールのインストールに時間がかかるため、ゆっくり待ちましょう。
 ビルドログから今何をしているか確認することもできます。
 
 <p align="center"><img src="/images/netlify/netlify-complete-deploy.png"></p>
@@ -135,7 +135,7 @@ Vue CLI で作成された `package.json` や webpack の設定を編集して�
 ビルドが終わると、ページの上部に <span class="num">7</span> 「Preview deploy」というリンクが表示されます。
 公開されたサイトを確認してみましょう！
 画面は静的サイトをアップロードしたものと同じなので省略します。
-一度設定したあとは、連携している GitHub のリポジトリに Push するだけで、差分を取得して自動的にデプロイをします。
+一度設定したあとは、連携している GitHub のリポジトリに Push するだけで差分を取得して自動的にデプロイをします。
 
 ## サイトの削除
 

@@ -24,12 +24,12 @@
 
 ### TextAnime1
 
-文字数が少ない＆スタイルを組み合わせてアニメーションを作成する場合はこちらがオススメ。
+文字数が少ない＆スタイルを組み合わせて、アニメーションを作成する場合はこちらがオススメ。
 
 <code-caption>TextAnime1.vue</code-caption>
 {include:examples/text-animation/TextAnime1.vue}
 
-固定の文字列なら、静的コンテンツとして埋め込んでしまってもよいでしょう。
+固定の文字列なら、もちろん `v-for` を使わずに静的コンテンツとして埋め込んでしまうのが一番コスパが良いです。
 
 ### TextAnime2
 
