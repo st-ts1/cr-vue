@@ -1,5 +1,5 @@
 const path = require('path')
-const crcodeLoader = require.resolve('./utils/crcode-loader.js')
+const crcodeLoader = require.resolve('./lib/crcode-loader.js')
 
 module.exports = {
   ga: 'UA-119776733-1',
