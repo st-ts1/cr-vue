@@ -133,6 +133,8 @@ new Vue({
 })
 ```
 
+<demo-block demo="guide-ch3-demo06"/>
+
 ### チェックボックス
 
 <page-info page="108"></page-info>
@@ -154,6 +156,8 @@ new Vue({
 })
 ```
 
+<demo-block demo="guide-ch3-demo07"/>
+
 #### 複数要素
 
 ```html
@@ -171,6 +175,8 @@ new Vue({
   }
 })
 ```
+
+<demo-block demo="guide-ch3-demo08"/>
 
 ### ラジオボタン
 
@@ -192,6 +198,8 @@ new Vue({
 })
 ```
 
+<demo-block demo="guide-ch3-demo09"/>
+
 ### セレクトボックス
 
 <page-info page="110"></page-info>
@@ -205,6 +213,7 @@ new Vue({
   <option value="b">B</option>
   <option value="c">C</option>
 </select>
+<p>{{ val }}</p>
 ```
 
 ```js
@@ -215,6 +224,8 @@ new Vue({
   }
 })
 ```
+
+<demo-block demo="guide-ch3-demo10"/>
 
 #### 複数要素
 
@@ -235,6 +246,8 @@ new Vue({
   }
 })
 ```
+
+<demo-block demo="guide-ch3-demo11"/>
 
 ### 画像ファイル
 
@@ -261,6 +274,10 @@ new Vue({
   }
 })
 ```
+
+<demo-block demo="guide-ch3-demo12"/>
+
+※ ここでの画像の選択は、ブラウザでプレビューするためのみに使用され、サーバーにアップロードする処理はしていません。
 
 ## S15 マウント要素外のイベントと操作
 
