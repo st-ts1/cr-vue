@@ -19,7 +19,7 @@
 
 - [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/examples/modal)
 
-<code-caption>MySelect.vue</code-caption>
+<code-caption>MyModal.vue</code-caption>
 {include:examples/modal/MyModal.vue}
 
 <code-caption>index.vue</code-caption>
