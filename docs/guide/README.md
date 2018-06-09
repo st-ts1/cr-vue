@@ -65,17 +65,30 @@ Fork してご利用下さい。
 大変申し訳ありません🙇‍
 
 <table class="missprint">
-  <thead><tr><th class="h-ch">CH</th><th class="h-page">ページ</th><th class="h-comment">内容</th></tr></thead>
+  <thead><tr><th class="h-ch">CH</th><th class="h-page">ページ</th><th class="h-comment">誤</th><th class="h-comment">正</th></tr></thead>
   <tbody>
   <tr>
-    <td>8</td>
-    <td>259</td>
-    <td>▼呼び出し方 誤 <code>store.state.count</code> 正 <code>store.state.message</code></td>
+    <td>2</td>
+    <td>76</td>
+    <td><code>a.id>b.id ? a.id:b.id</code> </td>
+    <td><code>a>b.id ? a:b.id</code></td>
   </tr>
   <tr>
     <td>8</td>
-    <td>259～262</td>
-    <td>コアコンセプトのセクションで使用している <code>Vuex.Store()</code> コンストラクタの閉じ括弧「<code>)</code>」（コードの一番最後の文字）が不足していました</td>
+    <td>259</td>
+    <td><code>store.state.count</code> </td>
+    <td><code>store.state.message</code></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>259～</td>
+    <td colspan="2">259～262 ページのコアコンセプトのセクションで使用している <code>Vuex.Store()</code> コンストラクタの閉じ括弧「<code>)</code>」（コードの一番最後の文字）が不足していました</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>259</td>
+    <td><code>a.price>b.price ? a.price:b.price</code> </td>
+    <td><code>a>b.price ? a:b.price</code></td>
   </tr>
   </tbody>
 </table>
