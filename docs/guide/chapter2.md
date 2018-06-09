@@ -236,7 +236,7 @@ new Vue({
     doAdd: function () {
       // リスト内で1番大きいIDを取得
       var max = this.list.reduce(function (a, b) {
-        return a.id > b.id ? a.id : b.id
+        return a > b.id ? a : b.id
       }, 0)
       // 新しいモンスターをリストに追加
       this.list.push({

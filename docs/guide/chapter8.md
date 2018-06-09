@@ -137,7 +137,7 @@ const store = new Vuex.Store({
     // リストの各要素の price プロパティの中から最大数値を返す
     max(state) {
       return state.list.reduce((a, b) => {
-        return a.price > b.price ? a.price : b.price
+        return a > b.price ? a : b.price
       }, 0)
     },
     // 引数付きゲッター
