@@ -68,11 +68,6 @@ module.exports = {
     editLinks: true,
     editLinkText: 'プルリクする'
   },
-  markdown: {
-    config: md => {
-      md.use(require('markdown-it-attrs'))
-    }
-  },
   chainWebpack: config => {
     config.resolve.alias
       .set('@docs', path.resolve(__dirname, '../'))
