@@ -31,6 +31,7 @@ module.exports = {
     sidebar: {
       '/guide/': [
         '',
+        'preface.md',
         'chapter1.md',
         'chapter2.md',
         'chapter3.md',
