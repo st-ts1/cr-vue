@@ -186,6 +186,8 @@ new Vue({
 
 <page-info page="126"/>
 
+このサンプルコードでは [Lodash](/guide/chapter1.html#s04-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) を使用しています。「lodash.min.js」を読み込んでください。
+
 ```html
 <div id="app">
   <input v-model.number="budget"> 円以下に絞り込む
@@ -331,6 +333,8 @@ new Vue({
 
 <page-info page="130"/>
 
+このサンプルコードでは [Lodash](/guide/chapter1.html#s04-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) を使用しています。「lodash.min.js」を読み込んでください。
+
 ```html
 <input type="text" v-model="value">
 ```
@@ -356,8 +360,9 @@ new Vue({
 
 <page-info page="133"/>
 
+このサンプルコードでは [axios](/guide/chapter1.html#s04-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) を使用しています。「axios.min.js」を読み込んでください。
+
 ```html
-<script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
 <div id="app">
   <select v-model="current">
     <option v-for="topic in topics" v-bind:value="topic.value">

@@ -331,6 +331,8 @@ new Vue({
 
 <page-info page="83"></page-info>
 
+このサンプルコードでは [axios](/guide/chapter1.html#s04-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) を使用しています。「axios.min.js」を読み込んでください。
+
 <code-caption>list.json</code-caption>
 ```json
 [

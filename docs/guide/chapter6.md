@@ -176,6 +176,8 @@ new Vue({
 
 <page-info page="206"/>
 
+このサンプルコードでは [Lodash](/guide/chapter1.html#s04-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) を使用しています。「lodash.min.js」を読み込んでください。
+
 ```html
 <div id="app">
   <p><button v-on:click="order=!order">切り替え</button></p>
@@ -223,6 +225,8 @@ new Vue({
 <page-info page="207"/>
 
 要素の追加＆削除機能も付けています。
+
+このサンプルコードでは [Lodash](/guide/chapter1.html#s04-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) を使用しています。「lodash.min.js」を読み込んでください。
 
 ```html
 <div id="app">
