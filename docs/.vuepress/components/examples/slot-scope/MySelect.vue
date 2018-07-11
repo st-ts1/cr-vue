@@ -86,7 +86,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .my-select {
   position: relative;
   box-sizing: border-box;

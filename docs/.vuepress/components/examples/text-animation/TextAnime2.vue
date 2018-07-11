@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 @keyframes text-in {
   0% {
     transform: translate(0, -20px);

@@ -14,22 +14,24 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 @keyframes text-in {
   0% {
     transform: translate(0, -20px);
     opacity: 0;
   }
 }
+
 .item {
   display: inline-block;
   min-width: 0.3em;
   font-size: 2rem;
-  animation: text-in .8s cubic-bezier(0.22, 0.15, 0.25, 1.43) 0s backwards;
+  animation: text-in 0.8s cubic-bezier(0.22, 0.15, 0.25, 1.43) 0s backwards;
 }
-@for $i from 0 through 12 {
-  .delay-anime:nth-child(#{$i + 1}) {
-    animation-delay: $i * 100ms + 200ms;
+
+for co in 0 .. 12 {
+  .delay-anime:nth-child({co + 1}) {
+    animation-delay: co * 100ms + 200ms;
   }
 }
 </style>

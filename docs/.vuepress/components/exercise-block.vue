@@ -27,14 +27,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .exercise {
   position: relative;
   background: #e7f4f1;
   padding: 16px 24px;
+
   .a {
     padding: 8px 0;
   }
+
   .header {
     display: inline-block;
     position: absolute;
@@ -46,9 +48,11 @@ export default {
     transform: rotate(6deg);
   }
 }
+
 .v-enter-active {
-  transition: opacity .8s;
+  transition: opacity 0.8s;
 }
+
 .v-enter {
   opacity: 0;
 }
