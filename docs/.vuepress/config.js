@@ -18,7 +18,6 @@ module.exports = {
     ['meta', { property: 'og:title', content: '基礎から学ぶ Vue.js' }],
     ['meta', { property: 'og:image', content: 'https://cr-vue.mio3io.com/summary.png' }],
     ['link', { rel: 'icon', href: '/icon.png' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css' }]
   ],
   themeConfig: {
     nav: [
