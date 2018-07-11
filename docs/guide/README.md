@@ -59,10 +59,12 @@ Fork してご利用下さい。
 
 書籍ではバージョン「2.5.13」を使用していますが、2018/5 時点の最新バージョン「2.5.16」でも動作確認済みです。
 
-## 誤記について
+## 正誤表
 
 すでに見つかっている誤植です。
 大変申し訳ありません🙇‍
+
+第二刷では修正済みです。
 
 <table class="missprint">
   <thead><tr><th class="h-ch">CH</th><th class="h-page">ページ</th><th class="h-comment">誤</th><th class="h-comment">正</th></tr></thead>
@@ -70,8 +72,8 @@ Fork してご利用下さい。
   <tr>
     <td>2</td>
     <td>76</td>
-    <td><code>a.id>b.id ? a.id:b.id</code> </td>
-    <td><code>a>b.id ? a:b.id</code></td>
+    <td><code>a.id > b.id ? a.id:b.id</code> </td>
+    <td><code>a > b.id ? a:b.id</code></td>
   </tr>
   <tr>
     <td>8</td>
@@ -87,8 +89,8 @@ Fork してご利用下さい。
   <tr>
     <td>8</td>
     <td>259</td>
-    <td><code>a.price>b.price ? a.price:b.price</code> </td>
-    <td><code>a>b.price ? a:b.price</code></td>
+    <td><code>a.price > b.price ? a.price:b.price</code> </td>
+    <td><code>a > b.price ? a:b.price</code></td>
   </tr>
   </tbody>
 </table>
