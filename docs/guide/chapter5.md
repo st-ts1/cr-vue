@@ -378,9 +378,11 @@ Vue.component('comp-child', {
 <code-caption>子コンポーネント / スロットを使用</code-caption>
 ```html
 <section class="comp-child">
-  <header>
-    <slot name="header">デフォルトタイトル</slot>
-  </header>
+  <slot name="header">
+    <header>
+      デフォルトタイトル
+    </header>
+  </slot>
   <div class="content">
     <slot>デフォルトコンテンツ</slot>
   </div>

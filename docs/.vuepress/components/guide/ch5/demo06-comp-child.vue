@@ -1,8 +1,10 @@
 <template>
   <section class="comp-child">
-    <header>
-      <slot name="header">デフォルトタイトル</slot>
-    </header>
+    <slot name="header">
+      <header>
+        デフォルトタイトル
+      </header>
+    </slot>
     <div class="content">
       <slot>デフォルトコンテンツ</slot>
     </div>
