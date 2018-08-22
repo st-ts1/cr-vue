@@ -401,6 +401,8 @@ export default router
 
 <page-info page="304"/>
 
+※ このサンプルコードは Vuex のモジュールを使用するため、あらかじめ「Chapter8 Vuexでアプリケーションの状態を管理する」をお読みいただいたうえで、Vuex と Vuex モジュールの使い方を理解する必要があります。
+
 <code-caption>src/store/product.js</code-caption>
 ```js
 import products from '@/api/products.js'
@@ -538,6 +540,8 @@ export default {
 
 #### ルータービュー用の Vuex モジュール
 
+※ このサンプルコードは Vuex のモジュールを使用するため、あらかじめ「Chapter8 Vuexでアプリケーションの状態を管理する」をお読みいただいたうえで、Vuex と Vuex モジュールの使い方を理解する必要があります。
+
 <code-caption>src/store/view.js</code-caption>
 ```js
 export default {
@@ -559,6 +563,8 @@ export default {
 ローディングのオーバーレイを表示したいタイミングで `view/start` を、非表示にしたいタイミングで `view/end` をコミットする。（ミューテーションタイプの命名が微妙だったかも）
 
 #### グローバルのナビゲーションガード
+
+※ このサンプルコードは Vuex のモジュールを使用するため、あらかじめ「Chapter8 Vuexでアプリケーションの状態を管理する」をお読みいただいたうえで、Vuex と Vuex モジュールの使い方を理解する必要があります。
 
 <code-caption>src/router.js</code-caption>
 ```js
