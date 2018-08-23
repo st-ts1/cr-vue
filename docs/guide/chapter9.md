@@ -329,7 +329,11 @@ export default {
 
 <page-info page="302～306"/>
 
-書籍で「商品情報」と「商品詳細」という表記ゆれがあるため、少し修正しています。
+::: tip
+
+※ このセクションのサンプルコードは Vuex のモジュールを使用するため、あらかじめ「Chapter8 Vuexでアプリケーションの状態を管理する」をお読みいただいたうえで、Vuex と Vuex モジュールの使い方を理解している必要があります。
+
+:::
 
 ### ネストされたルートの定義
 
@@ -401,8 +405,6 @@ export default router
 
 <page-info page="304"/>
 
-※ このサンプルコードは Vuex のモジュールを使用するため、あらかじめ「Chapter8 Vuexでアプリケーションの状態を管理する」をお読みいただいたうえで、Vuex と Vuex モジュールの使い方を理解する必要があります。
-
 <code-caption>src/store/product.js</code-caption>
 ```js
 import products from '@/api/products.js'
@@ -435,6 +437,52 @@ export default {
   }
 }
 ```
+
+::: tip Vuex モジュールの登録の仕方
+
+[【基礎から学ぶ Vue.js】Chapter9「ネストされた複雑なページを作成しよう」の動作確認](https://qiita.com/billiesbounce/items/34c39a0723ebfe65e67a)
+
+次の手順を行い、Vuex と Vuex モジュールを登録してください。
+
+1. 「src/store/product.js」のモジュールを「src/store.js」のストアルートに登録する
+2. 「src/store.js」のストアルートを「src/main.js」のアプリケーションに登録する
+
+具体的な例は次のとおりです。
+
+<code-caption>src/store.js</code-caption>
+```js
+import Vue from 'vue'
+import Vuex from 'vuex'
+import product from '@/store/product.js'
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  modules: {
+    product // モジュールをストアルートに登録
+  },
+  // ...
+})
+```
+
+<code-caption>src/main.js</code-caption>
+```js
+import Vue from 'vue'
+import store from '@/store.js'
+import router from '@/router.js'
+import App from '@/App.vue'
+
+new Vue({
+  el: '#app',
+  store, // アプリケーションに登録
+  router,
+  render: h => h(App)
+  // ...
+})
+```
+
+より詳しい Vuex の使い方については Chapter8 をお読みください。
+
+:::
 
 ### 親ルート用コンポーネントの定義
 
@@ -540,7 +588,11 @@ export default {
 
 #### ルータービュー用の Vuex モジュール
 
+::: tip
+
 ※ このサンプルコードは Vuex のモジュールを使用するため、あらかじめ「Chapter8 Vuexでアプリケーションの状態を管理する」をお読みいただいたうえで、Vuex と Vuex モジュールの使い方を理解する必要があります。
+
+:::
 
 <code-caption>src/store/view.js</code-caption>
 ```js
@@ -564,7 +616,11 @@ export default {
 
 #### グローバルのナビゲーションガード
 
+::: tip
+
 ※ このサンプルコードは Vuex のモジュールを使用するため、あらかじめ「Chapter8 Vuexでアプリケーションの状態を管理する」をお読みいただいたうえで、Vuex と Vuex モジュールの使い方を理解する必要があります。
+
+:::
 
 <code-caption>src/router.js</code-caption>
 ```js
