@@ -14,34 +14,6 @@ Forkして、いろいろ付け足してみてください😺
 
 ※ 下のバーからコンソールも使用できます
 
-
-::: warning ストアの参照方法について
-
-このサイトを構築している VuePress で複数のストアを扱っている都合上、このページのコードでは単一ファイルコンポーネントごとに `store.js` を読み込んでいます。
-
-<code-caption>App.vue 都合上このように読み込んでいる</code-caption>
-```js
-import store from './store'
-export default {
-  created() {
-    console.log(store.state) // store で参照
-  }
-}
-```
-
-一般的には、グローバルに登録して使用します。（256ページ参照）
-
-<code-caption>App.vue グローバルに登録していれば import 文不要でこう書ける</code-caption>
-```js
-export default {
-  created() {
-    console.log(this.$store.state) // this.$store で参照
-  }
-}
-```
-
-:::
-
 ::: tip
 
 パス中の「`@`」は「`src/`」のエイリアスです。
@@ -167,7 +139,40 @@ store.getters.name(1)
 ```
 
 <code-caption>src/App.vue</code-caption>
-{include:guide/ch8/s43/src/App.vue}
+
+```vue
+<template>
+  <div class="app">
+    <h3>引数なし</h3>
+    <ol>
+      <li>{{ count }}</li>
+      <li>{{ max }}</li>
+    </ol>
+    <h3>引数付き</h3>
+    <ol>
+      <li>{{ itemA }}</li>
+      <li>{{ itemB(1) }}</li>
+      <li>{{ nameA }}</li>
+      <li>{{ nameB(1) }}</li>
+    </ol>
+  </div>
+</template>
+
+<script>
+export default {
+  computed: {
+    // 引数なしゲッター
+    count() { return this.$store.getters.count },   // 1
+    max()   { return this.$store.getters.max },     // 2
+    // 引数付きゲッター
+    itemA() { return this.$store.getters.item(1) }, // 1 👍 いいね
+    itemB() { return this.$store.getters.item },    // 2 👎 よくないね
+    nameA() { return this.$store.getters.name(1) }, // 3 👍 いいね
+    nameB() { return this.$store.getters.name },    // 4 👎 よくないね
+  }
+}
+</script>
+```
 
 - [ソースコード](https://github.com/mio3io/cr-vue/tree/master/docs/.vuepress/components/guide/ch8/s43)
 
@@ -234,7 +239,31 @@ store.dispatch('actionType', payload)
 <page-info page="265"/>
 
 <code-caption>src/App.vue</code-caption>
-{include:guide/ch8/s44/src/App.vue}
+
+```vue
+<template>
+  <div class="app">
+    <h1>{{ message }}</h1>
+    <EditForm/>
+  </div>
+</template>
+<script>
+// 子コンポーネントを読み込む
+import EditForm from './components/EditForm'
+export default {
+  name: 'app',
+  components: {
+    EditForm
+  },
+  computed: {
+    // ローカルの message とストアの message を同期
+    message() {
+      return this.$store.getters.message
+    }
+  }
+}
+</script>
+```
 
 ### メッセージを更新する
 
@@ -243,7 +272,38 @@ store.dispatch('actionType', payload)
 「ステートやゲッターに `v-model` を使用する」もまとめています。
 
 <code-caption>src/components/EditForm.vue</code-caption>
-{include:guide/ch8/s44/src/components/EditForm.vue}
+
+```vue
+<template>
+  <div class="edit-form">
+    <h3>バインドとイベントを使った場合</h3>
+    <input type="text" :value="message" @input="doUpdate">
+    <h3>v-model を使った場合</h3>
+    <input v-model="message2">
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'EditForm',
+  computed: {
+    message() {
+      return this.$store.getters.message
+    },
+    message2: {
+      get() { return this.$store.getters.message },
+      set(value) { this.$store.dispatch('doUpdate', value) }
+    }
+  },
+  methods: {
+    doUpdate(event) {
+      // input の値を持ってディスパッチ
+      this.$store.dispatch('doUpdate', event.target.value)
+    }
+  }
+}
+</script>
+```
 
 <demo-block demo="guide-ch8-s44-src-App"/>
 
