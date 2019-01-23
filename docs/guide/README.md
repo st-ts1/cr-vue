@@ -91,8 +91,6 @@ Fork してご利用下さい。
 すでに見つかっている誤植です。
 大変申し訳ありません 🙇‍
 
-第二刷では修正済みです。
-
 <table class="missprint">
   <thead><tr><th class="h-ch">CH</th><th class="h-page">ページ</th><th class="h-comment">誤</th><th class="h-comment">正</th></tr></thead>
   <tbody>
@@ -105,8 +103,8 @@ Fork してご利用下さい。
   <tr>
     <td>6</td>
     <td>199</td>
-    <td>対象要素がDOMに挿入される前に付与され、トランジションが終了したときに削除される。Enterのアクティブ状態を表す</td>
-    <td>トランジションの開始する前に付与され、トランジションの開始時に削除される。Enterの開始状態を表す</td>
+    <td><small>(v-enter の説明)</small><br>対象要素がDOMに挿入される前に付与され、トランジションが終了したときに削除される。Enterのアクティブ状態を表す</td>
+    <td><small>(v-enter の説明)</small><br>トランジションの開始する前に付与され、トランジションの開始時に削除される。Enterの開始状態を表す</td>
   </tr>
   <tr>
     <td>8</td>
