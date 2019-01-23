@@ -95,6 +95,32 @@ new Vue({
 </template>
 ```
 
+以下は簡単な CSS のサンプルです。（その他、細かい部分は各自で装飾してください）
+
+<code-caption>src/App.vue</code-caption>
+```vue
+<style>
+...
+/* ナビゲーション */
+nav {
+    display: flex;
+    align-items: center;
+    background: #222;
+}
+nav a {
+    display: block;
+    padding: 0.5em;
+    color: #eee;
+    line-height: 1em;
+    text-decoration: none;
+}
+/* アクティブなリンク */
+.router-link-active {
+    background: palevioletred;
+}
+</style>
+```
+
 ### URL にハッシュを付けない
 
 <code-caption>.htaccess</code-caption>
