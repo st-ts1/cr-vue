@@ -845,6 +845,11 @@
   dependencies:
     lodash.throttle "^4.1.1"
 
+"@vuepress/plugin-google-analytics@^1.0.0-alpha.0":
+  version "1.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.0.0-alpha.0.tgz#97acb3a512dca9b2b6e4014fa2d58da38e2a01b9"
+  integrity sha512-WNUIayJFBmTb06bjvFeJd5TlT4qoYcCLN15zkEGeAGH8tCH2BtrwMkSG3BiiWSh3xRUy7kDHhsuclSZcRY08EQ==
+
 "@vuepress/plugin-last-updated@^1.0.0-alpha.36":
   version "1.0.0-alpha.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-last-updated/-/plugin-last-updated-1.0.0-alpha.36.tgz#f06e0e38a6833929576c6796364ae63999edf891"
@@ -1341,6 +1346,7 @@ aws4@^1.8.0:
 axios@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+  integrity sha1-MtU+SFHv3AoRmTts0AB4nXDAUQI=
   dependencies:
     follow-redirects "^1.3.0"
     is-buffer "^1.1.5"
@@ -4180,7 +4186,7 @@ lodash@^4.17.10:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
-lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5:
+lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
@@ -6949,9 +6955,10 @@ vuepress@^1.0.0-alpha.36:
     "@vuepress/theme-default" "^1.0.0-alpha.36"
     cac "^6.3.9"
 
-vuex@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"
+vuex@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.1.0.tgz#634b81515cf0cfe976bd1ffe9601755e51f843b9"
+  integrity sha512-mdHeHT/7u4BncpUZMlxNaIdcN/HIt1GsGG5LKByArvYG/v6DvHcOxvDCts+7SRdCoIRGllK8IMZvQtQXLppDYg==
 
 watchpack@^1.5.0:
   version "1.6.0"
