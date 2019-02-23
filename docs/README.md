@@ -50,7 +50,7 @@ JavaScript や HTML の[学習におすすめの書籍はこちら](/guide/#あ�
 /
 [楽天ブックスで購入](https://hb.afl.rakuten.co.jp/hgc/16cc1616.c2b41262.16cc1617.d035e4f0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15467945%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19126139%2F&link_type=text&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjEyOHgxMjgiLCJuYW0iOjEsIm5hbXAiOiJkb3duIiwiY29tIjoxLCJjb21wIjoiZG93biIsInByaWNlIjoxLCJib3IiOjEsImNvbCI6MH0%3D)
 /
-[本の森で購入](http://www.honmori.jp/SHOP/86354-245-7.html)
+[本の森で購入](https://book.mynavi.jp/manatee/c-r/books/detail/id=90940)
 
 他、ネットショップでもご購入頂けます。
 
