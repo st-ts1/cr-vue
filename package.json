@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mio3io/cr-vue#readme",
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
-    "vuepress": "^1.0.0-alpha.36"
+    "vuepress": "^1.0.0-alpha.39"
   },
   "dependencies": {
     "axios": "^0.18.0",
