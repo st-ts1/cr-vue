@@ -35,6 +35,14 @@ Lodash（ユーティリティ用ライブラリ） と axios（HTTP 通信用�
 
 <page-info page="36"></page-info>
 
+<mark>**Chapter 7** までは、コードは次のファイルに固定して書きます。</mark>
+
+- HTML は「index.html」
+- JavaScript は「main.js」
+- CSS は「main.css」
+
+**Chapter 7** 以降は、コードのヘッダー部分にファイル名が記述されています。
+
 <code-caption>index.html</code-caption>
 ```html
 <!DOCTYPE html>
