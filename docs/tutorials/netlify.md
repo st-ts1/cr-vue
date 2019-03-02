@@ -7,6 +7,8 @@ title: Vue.js＋Netlifyで自動デプロイ
 
 このチュートリアルでは、Vue CLI で作成したVue.jsのプロジェクトを、Netlify で手動デプロイおよび自動デプロイするまでの手順を説明します。
 
+<google-ads/>
+
 ## Netlify とは？
 
 静的サイト向けの高機能なホスティングサービスです。

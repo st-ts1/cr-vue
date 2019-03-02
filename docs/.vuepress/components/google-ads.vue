@@ -1,11 +1,11 @@
 <template>
   <div class="ads-link" v-once>
     <ins class="adsbygoogle"
-        style="display:block; text-align:center;"
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
+        style="display:block"
         data-ad-client="ca-pub-9963940270052185"
-        data-ad-slot="1479636199"></ins>
+        data-ad-slot="6705587300"
+        data-ad-format="link"
+        data-full-width-responsive="true"></ins>
   </div>
 </template>
 <script>

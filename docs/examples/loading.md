@@ -30,3 +30,5 @@
 ## コメント
 
 Katashin さんの [vue-size-provider](https://github.com/ktsn/vue-size-provider) を利用すると、要素の高さを監視して簡単に高さのアニメーションを適用できます。
+
+<google-ads/>

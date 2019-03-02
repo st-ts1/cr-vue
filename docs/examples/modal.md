@@ -24,3 +24,5 @@
 
 <code-caption>index.vue</code-caption>
 {include:examples/modal/index.vue}
+
+<google-ads/>

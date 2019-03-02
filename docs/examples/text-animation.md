@@ -45,3 +45,5 @@
 
 <code-caption>TextAnime3.vue</code-caption>
 {include:examples/text-animation/TextAnime3.vue}
+
+<google-ads/>

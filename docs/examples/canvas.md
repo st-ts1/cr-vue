@@ -19,3 +19,5 @@
 {include:examples/canvas/MyCanvas.vue}
 
 ライフサイクルの `mounted` 以降で `$el` や `$refs` などを使ってアクセスしましょう。
+
+<google-ads/>
