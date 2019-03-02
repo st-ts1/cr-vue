@@ -6837,6 +6837,11 @@ vue-router@^3.0.2:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.2.tgz#dedc67afe6c4e2bc25682c8b1c2a8c0d7c7e56be"
   integrity sha512-opKtsxjp9eOcFWdp6xLQPLmRGgfM932Tl56U9chYTnoWqKxQ8M20N7AkdEbM5beUh6wICoFGYugAX9vQjyJLFg==
 
+vue-script2@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/vue-script2/-/vue-script2-2.0.3.tgz#74a53a51cc72eeb0c8935f40f0155968a94a2d7c"
+  integrity sha512-sGsFbqCIZDbPq140X1p8T6Y72MoCtkFpQ7CfhknZLqDZxMGWavFqIY/5YsnhqxxatWnYy0us/IoHSDr5l2JZzQ==
+
 vue-server-renderer@^2.5.16:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.6.7.tgz#ff40f69a439da8993a6e171b7d58575bfbeefb79"
