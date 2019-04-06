@@ -90,6 +90,9 @@ JavaScript や HTML の[学習におすすめの書籍はこちら](/guide/#あ�
 パソコンまたはタブレットでご覧ください。
 ブラウザは Chrome を推奨しています。（その他のブラウザは調整中です）
 
+<div style="text-align:center;margin:80px 0 20px;">
+  <a href="policy.html">プライバシーポリシー</a>
+</div>
 
 <style>
 .home-book {
