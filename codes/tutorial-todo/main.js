@@ -103,7 +103,10 @@ new Vue({
     doRemove: function (item) {
       var index = this.todos.indexOf(item)
       this.todos.splice(index, 1)
-    }
+    },
 
+    updatecurrentfunc: function(num) {
+			this.current = num;
+		}
   }
 })
