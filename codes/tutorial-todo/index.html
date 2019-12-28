@@ -42,6 +42,11 @@
         </el-table-column>
         <el-table-column label="-">
           <template slot-scope="scope">
+            <el-button v-on:click="showDialogDetail(computedTodos[scope.$index])">詳細</el-button>
+          </template>
+        </el-table-column>
+        <el-table-column label="-">
+          <template slot-scope="scope">
             <el-button v-on:click="doRemove(computedTodos[scope.$index])">削除</el-button>
           </template>
         </el-table-column>
@@ -56,6 +61,12 @@
       <!-- 追加ボタンのモック -->
       <button type="submit">追加</button>
     </form>
+
+    <el-dialog title="詳細設定" v-bind:visible.sync="dialogVisible" width="80%" v-bind:before-close="handleClose">
+      <div>詳細を入力してください</div>
+      <el-input type="textarea" :rows="2" placeholder="Please input" v-model="dialogItem.detail">
+      </el-input>
+    </el-dialog>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>

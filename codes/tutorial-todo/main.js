@@ -33,7 +33,9 @@ new Vue({
       { value: -1, label: 'すべて' },
       { value: 0, label: '作業中' },
       { value: 1, label: '完了' }
-    ]
+    ],
+    dialogVisible: false,
+    dialogItem: {detail: ""}
   },
 
   computed: {
@@ -90,7 +92,8 @@ new Vue({
       this.todos.push({
         id: todoStorage.uid++,
         comment: comment.value,
-        state: 0
+        state: 0,
+        detail: ""
       })
       // フォーム要素を空にする
       comment.value = ''
@@ -109,6 +112,14 @@ new Vue({
 
     updatecurrentfunc: function(num) {
 			this.current = num;
-		}
+    },
+    handleClose: function() {
+      console.log("handleClose")
+      this.dialogVisible = false
+    },
+    showDialogDetail: function (item) {
+      this.dialogVisible = true
+      this.dialogItem = item
+    }
   }
 })
