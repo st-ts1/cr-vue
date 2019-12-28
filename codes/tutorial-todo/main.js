@@ -16,6 +16,8 @@ var todoStorage = {
   }
 }
 
+// CDNのElementで日本語を使う
+ELEMENT.locale(ELEMENT.lang.ja)
 
 // ★STEP1
 new Vue({
