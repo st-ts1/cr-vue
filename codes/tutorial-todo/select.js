@@ -9,11 +9,11 @@ Vue.component('my-select', {
     +'<el-radio-button v-bind:label="label.value">{{ label.label }}</el-radio-button>'
     +'</el-radio-group>'
     +'</div>',
-    props: ['mysoptions'],
-    /* TODO: コンポーネントの双方向バインディングが理解出来ていない */
+    props: ['mysoptions', 'myscurrent'],
+    
     data: function() {
         return {
-            current: -1
+            current: this.myscurrent
         }
     },
     watch: {
