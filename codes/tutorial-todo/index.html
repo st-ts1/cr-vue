@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Vue.js App</title>
-  <link rel="stylesheet" href="./main.css">
+  <!-- <link rel="stylesheet" href="./main.css"> -->
 </head>
 
 <body>
@@ -29,35 +29,24 @@
     （{{ computedTodos.length }} 件を表示）
 
     <!-- ★STEP4 リスト用テーブル -->
-    <table>
-      <thead v-pre>
-        <tr>
-          <th class="id">ID</th>
-          <th class="comment">コメント</th>
-          <th class="state">状態</th>
-          <th class="button">-</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- ★STEP5 ToDo の要素をループ -->
-        <tr v-for="item in computedTodos" v-bind:key="item.id" v-bind:class="{done:item.state}">
-          <th>{{ item.id }}</th>
-          <td>{{ item.comment }}</td>
-          <td class="state">
-            <!-- ★STEP10 状態変更ボタン -->
-            <button v-on:click="doChangeState(item)">
-              {{ labels[item.state] }}
-            </button>
-          </td>
-          <td class="button">
-            <!-- ★STEP10 削除ボタン -->
-            <button v-on:click="doRemove(item)">
-              削除
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <template>
+      <el-table v-bind:data="computedTodos">
+        <el-table-column prop="id" label="ID"></el-table-column>
+        <el-table-column prop="comment" label="コメント"></el-table-column>
+        <el-table-column label="状態">
+          <template slot-scope="scope">
+            <el-button v-on:click="doChangeState(computedTodos[scope.$index])">
+              {{ labels[computedTodos[scope.$index].state] }}
+            </el-button>
+          </template>
+        </el-table-column>
+        <el-table-column label="-">
+          <template slot-scope="scope">
+            <el-button v-on:click="doRemove(computedTodos[scope.$index])">削除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </template>
 
     <!-- ★STEP6 -->
     <h2>新しい作業の追加</h2>
