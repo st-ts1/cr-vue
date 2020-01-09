@@ -1,4 +1,4 @@
-Vue.component('menuheader', {
+Vue.component('mymenu-header', {
     // template: '<el-row>'
     //     + '<el-col v-bind:span="24"><h1>チュートリアルToDoリスト</h1></el-col>'
     //     + '</el-row>',
