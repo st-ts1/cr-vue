@@ -1,20 +1,6 @@
 
 // ★STEP2
 // https://jp.vuejs.org/v2/examples/todomvc.html
-var STORAGE_KEY = 'todos-vuejs-demo'
-var todoStorage = {
-  fetch: function () {
-    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-    todos.forEach(function (todo, index) {
-      todo.id = index
-    })
-    todoStorage.uid = todos.length
-    return todos
-  },
-  save: function (todos) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
-  }
-}
 
 // CDNのElementで日本語を使う
 ELEMENT.locale(ELEMENT.lang.ja)
@@ -63,7 +49,24 @@ new Vue({
     todos: {
       // 引数はウォッチしているプロパティの変更後の値
       handler: function (todos) {
-        todoStorage.save(todos)
+        var vm = this;
+        axios.post('/api/v1/save', todos )
+        // thenで成功した場合の処理をかける
+        .then(response => {
+            console.log('status:', response.status); // 200
+            console.log('body:', response.data);     // response body.
+            if (response.status != 200) {
+                vm.$message = "エラー " + response.status;
+            } else {
+                vm.$message('保存に成功');
+            }
+        })
+        // catchでエラー時の挙動を定義する
+        .catch(err => {
+            console.log('axios err:', err);
+            vm.$message('予期せぬエラー');
+
+        });
       },
       // deep オプションでネストしているデータも監視できる
       deep: true
@@ -72,8 +75,30 @@ new Vue({
 
   // ★STEP9
   created() {
-    // インスタンス作成時に自動的に fetch() する
-    this.todos = todoStorage.fetch()
+    // インスタンス作成時にflaskから読み込む する
+    var vm = this;
+    axios.get('/api/v1/load')
+    // thenで成功した場合の処理をかける
+    .then(response => {
+        console.log('status:', response.status); // 200
+        console.log(response.data);     // response body.
+        if (response.status != 200) {
+            //vm.message = "エラー " + response.status;
+            vm.$message('読み込み失敗');
+        } else {
+            //vm.message = response.data;
+            vm.$message('読み込み成功');
+            //json_data = JSON.parse(response.data)
+            vm.todos = response.data;
+            console.log(vm.todos.length)
+        }
+    })
+    // catchでエラー時の挙動を定義する
+    .catch(err => {
+        console.log('axios err:', err);
+        vm.$message('ロード時に予期せぬエラー');
+    });
+
   },
 
   methods: {
@@ -86,11 +111,20 @@ new Vue({
       if (!comment.value.length) {
         return
       }
+      var maxid=0;
+      for (todo of this.todos) {
+        console.log("find maxid todo:"+todo);
+        if (maxid < todo.id) {
+          maxid = todo.id;
+        }
+      }
+      console.log("find maxid maxid:"+maxid);
       // { 新しいID, コメント, 作業状態 }
       // というオブジェクトを現在の todos リストへ push
       // 作業状態「state」はデフォルト「作業中=0」で作成
       this.todos.push({
-        id: todoStorage.uid++,
+        id: maxid + 1,
+
         comment: comment.value,
         state: 0,
         detail: ""
