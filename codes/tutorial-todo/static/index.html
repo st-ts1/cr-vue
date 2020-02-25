@@ -64,8 +64,13 @@
 
     <el-dialog title="詳細設定" v-bind:visible.sync="dialogVisible" width="80%" v-bind:before-close="handleClose">
       <div>詳細を入力してください</div>
+      <!--
       <el-input type="textarea" :rows="2" placeholder="Please input" v-model="dialogItem.detail">
       </el-input>
+      <div>--TESTTEST--</div>
+      -->
+      <my-detail v-bind:my_detail_prop.sync="dialogItem.detail"
+        v-on:updatedetail="updatedetail_main_func($event, dialogItem)"></my-detail>
     </el-dialog>
   </div>
 
@@ -79,6 +84,7 @@
   <!-- ここから自作部分 -->
   <script src="./menuheader.js"></script>
   <script src="./select.js"></script>
+  <script src="./my-detail.js"></script>
   <script src="./main.js"></script>
 </body>
 

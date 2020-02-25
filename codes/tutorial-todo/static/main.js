@@ -154,6 +154,10 @@ new Vue({
     showDialogDetail: function (item) {
       this.dialogVisible = true
       this.dialogItem = item
+    },
+    updatedetail_main_func(detial_str, dialogItem) {
+      console.log("updatedetail_main_func detail_str:"+detial_str)
+      dialogItem.detail = detial_str;
     }
   }
 })
